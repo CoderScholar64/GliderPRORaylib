@@ -4,8 +4,16 @@
 //                              Externs.h
 //----------------------------------------------------------------------------
 //============================================================================
-#pragma once
+
+#ifndef GPRO_EXTERNS_H
+#define GPRO_EXTERNS_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <Menus.h>
+
 #define kPreferredDepth             8
 #define kNilPointer                 0L
 #define kPutInFront                 (WindowPtr)-1L
@@ -356,3 +364,10 @@ void CloseThisWindow (WindowPtr *);
 #include "GliderStructs.h"
 #include "GliderVars.h"
 #include "GliderProtos.h"
+
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // GPRO_EXTERNS_H

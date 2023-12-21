@@ -3,7 +3,16 @@
 //                              DialogUtils.h
 //----------------------------------------------------------------------------
 //============================================================================
+
+#ifndef GPRO_DIALOG_UTILS_H
+#define GPRO_DIALOG_UTILS_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <Dialogs.h>
+
 void BringUpDialog (DialogPtr *theDialog, short dialogID);
 //void GetPutDialogCorner (Point *);
 //void GetGetDialogCorner (Point *);
@@ -41,3 +50,9 @@ void FrameOvalDialogItem (DialogPtr, short);
 void BorderDialogItem (DialogPtr, short, short);
 void ShadowDialogItem (DialogPtr, short, short);
 void EraseDialogItem (DialogPtr, short);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // GPRO_DIALOG_UTILS_H

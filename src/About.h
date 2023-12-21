@@ -3,4 +3,18 @@
 //                              About.h
 //----------------------------------------------------------------------------
 //============================================================================
+
+#ifndef GPRO_ABOUT_H
+#define GPRO_ABOUT_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 void DoAbout (void);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // GPRO_ABOUT_H

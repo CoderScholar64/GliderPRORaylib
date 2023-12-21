@@ -4,6 +4,14 @@
 //                              GliderDefines.h
 //----------------------------------------------------------------------------
 //============================================================================
+
+#ifndef GPRO_GLIDER_DEFINES_H
+#define GPRO_GLIDER_DEFINES_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 //==============================================================  Defines
 //#define CREATEDEMODATA
 //#define COMPILEDEMO
@@ -574,3 +582,9 @@
 #define kSavingTitleMode            2
 #define kScoreboardPictID           1997
 #define kDemoLength                 6702
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // GPRO_GLIDER_DEFINES_H

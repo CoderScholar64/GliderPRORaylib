@@ -3,6 +3,13 @@
 //                                  Objects.h
 //----------------------------------------------------------------------------
 //============================================================================
+#ifndef GPRO_OBJECTS_H
+#define GPRO_OBJECTS_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 extern GWorldPtr        blowerSrcMap;
 extern GWorldPtr        blowerMaskMap;
 extern GWorldPtr        furnitureSrcMap;
@@ -38,3 +45,9 @@ extern GWorldPtr        fishSrcMap;
 extern GWorldPtr        fishMaskMap;
 extern GWorldPtr        clutterSrcMap;
 extern GWorldPtr        clutterMaskMap;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // GPRO_OBJECTS_H

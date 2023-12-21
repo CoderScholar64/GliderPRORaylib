@@ -3,7 +3,16 @@
 //                              GliderVars.h
 //----------------------------------------------------------------------------
 //============================================================================
+
+#ifndef GPRO_GLIDER_VARS_H
+#define GPRO_GLIDER_VARS_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <Movies.h>
+
 extern  Rect        blowerSrcRect;
 extern  Rect        flame[], tikiFlame[];
 extern  Rect        coals[];
@@ -50,3 +59,9 @@ extern  short       playOriginH, playOriginV;
 extern  short       thisRoomNumber, theMode, batteryTotal, bandsTotal;
 extern  short       foilTotal, mortals, numMasterObjects, previousRoom;
 extern  Boolean     fileDirty, gameDirty, showFoil, doZooms, isPlayMusicGame;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // GPRO_GLIDER_VARS_H

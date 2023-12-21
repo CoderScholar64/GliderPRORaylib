@@ -3,7 +3,16 @@
 //                              GliderStructs.h
 //----------------------------------------------------------------------------
 //============================================================================
+
+#ifndef GPRO_GLIDER_STRUCTS_H
+#define GPRO_GLIDER_STRUCTS_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <QDOffscreen.h>
+
 typedef struct
 {
     Point       topLeft;                // 4
@@ -307,3 +316,9 @@ typedef struct
     short       room;
     short       object;
 } retroLink, *retroLinkPtr;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // GPRO_GLIDER_STRUCTS_H

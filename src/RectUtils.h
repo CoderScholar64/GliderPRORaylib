@@ -3,8 +3,16 @@
 //                                 RectUtils.h
 //----------------------------------------------------------------------------
 //============================================================================
-#pragma once
+
+#ifndef GPRO_RECT_UTILS_H
+#define GPRO_RECT_UTILS_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <Quickdraw.h>
+
 void FrameWHRect (short, short, short, short);
 void NormalizeRect (Rect *);
 void ZeroRectCorner (Rect *);
@@ -25,3 +33,9 @@ Boolean ForceRectInRect (Rect *, Rect *);
 void QUnionSimilarRect (Rect *, Rect *, Rect *);
 void FrameRectSansCorners (Rect *);
 void SetEraseRect (short, short, short, short);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // GPRO_RECT_UTILS_H

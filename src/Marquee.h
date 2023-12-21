@@ -3,7 +3,14 @@
 //                                  Marquee.h
 //----------------------------------------------------------------------------
 //============================================================================
-#pragma once
+
+#ifndef GPRO_MARQUEE_H
+#define GPRO_MARQUEE_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <Quickdraw.h>
 typedef struct
 {
@@ -13,3 +20,9 @@ typedef struct
     Boolean     active, paused, handled;
 } marquee;
 extern marquee      theMarquee;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // GPRO_MARQUEE_H

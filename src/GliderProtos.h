@@ -4,6 +4,14 @@
 //                              GliderProtos.h
 //----------------------------------------------------------------------------
 //============================================================================
+
+#ifndef GPRO_GLIDER_PROTOS_H
+#define GPRO_GLIDER_PROTOS_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 //--------------------------------------------------------------  Prototypes
 void SetUpAppleEvents (void);                           // --- AppleEvents.c
 void BringUpBanner (void);                              // --- Banner.c
@@ -473,3 +481,9 @@ void UpdateOutletsLighting (SInt16, SInt16);
 void ArmTrigger (hotPtr);                               // --- Triggers.c
 void HandleTriggers (void);
 void ZeroTriggers (void);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // GPRO_GLIDER_PROTOS_H

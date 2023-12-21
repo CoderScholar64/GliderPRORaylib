@@ -3,7 +3,16 @@
 //                              Environ.h
 //----------------------------------------------------------------------------
 //============================================================================
+
+#ifndef GPRO_ENVIRON_H
+#define GPRO_ENVIRON_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <Quickdraw.h>
+
 typedef struct
 {
     Rect        screen, gray;
@@ -27,3 +36,9 @@ typedef struct
     Boolean     hasDrag;
 } macEnviron;
 extern macEnviron   thisMac;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // GPRO_ENVIRON_H
