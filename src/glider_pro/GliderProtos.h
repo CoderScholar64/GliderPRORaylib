@@ -12,6 +12,9 @@
 extern "C" {
 #endif
 
+#include "GliderTypes.h"
+#include "GliderStructs.h"
+
 //--------------------------------------------------------------  Prototypes
 void SetUpAppleEvents (void);                           // --- AppleEvents.c
 void BringUpBanner (void);                              // --- Banner.c

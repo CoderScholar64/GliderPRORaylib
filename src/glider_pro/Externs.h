@@ -12,7 +12,8 @@
 extern "C" {
 #endif
 
-#include <Menus.h>
+#include "GliderTypes.h"
+// #include <Menus.h> // MAC Specific.
 
 #define kPreferredDepth             8
 #define kNilPointer                 0L
@@ -217,7 +218,7 @@ typedef short       SICN[16];
 typedef SICN        *SICNList;
 typedef SICNList    *SICNHand;
 */
-#pragma options align=mac68k
+// #pragma options align=mac68k // mac68k is not supported anyways.
 typedef struct
 {
     Str32       wasDefaultName;
@@ -253,7 +254,7 @@ typedef struct
     Boolean     wasDoBackground, wasHouseChecks;
     Boolean     wasPrettyMap, wasBitchDialogs;
 } prefsInfo;
-#pragma options align=reset
+// #pragma options align=reset // Compiler warns that this basically does nothing.
 //--------------------------------------------------------------  Prototypes
 void DoAbout (void);                                    // --- About.c
 void LoadCursors (void);                                // --- AnimCursor.c
@@ -355,11 +356,7 @@ void OpenMessageWindow (StringPtr);
 void SetMessageWindowMessage (StringPtr);
 void CloseMessageWindow (void);
 void CloseThisWindow (WindowPtr *);
-#ifdef powerc
-//  extern pascal void SetSoundVol(short level);        // for old Sound Manager
-//  extern pascal void GetSoundVol(short *level)
-//  THREEWORDINLINE(0x4218, 0x10B8, 0x0260);
-#endif
+
 #include "GliderDefines.h"
 #include "GliderStructs.h"
 #include "GliderVars.h"

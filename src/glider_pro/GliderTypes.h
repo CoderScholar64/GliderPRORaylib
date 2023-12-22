@@ -32,16 +32,27 @@ typedef struct
     SInt16 y;
 } Point;
 
-typedef char Str255[256];
-typedef char Str32[33];
-typedef char Str31[32];
-typedef char Str27[28];
-typedef char Str15[16];
+typedef char  Str255[256];
+typedef char  Str32[33];
+typedef char  Str31[32];
+typedef char  Str27[28];
+typedef char  Str15[16];
+typedef char* StringPtr;
 
+typedef int OSErr; // For now OSError can stay.
+typedef void* Ptr;
+
+// Everything after this is are nothing.
 typedef struct
 {
-    Byte nothing[70];
+    Byte nothing[70]; // The documentation does not describe this, so I am going to remove this.
 } FSSpec;
+
+typedef void* CGrafPtr;
+typedef void* EventRecord;
+typedef void* Handle;
+typedef void* RgnHandle;
+typedef void* WindowPtr;
 
 #ifdef __cplusplus
 }
