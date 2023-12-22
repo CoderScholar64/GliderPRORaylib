@@ -5,7 +5,7 @@
 //----------------------------------------------------------------------------
 //============================================================================
 #include "Externs.h"
-#include <Gestalt.h>
+//#include <Gestalt.h>
 #ifndef COMPILEDEMO
 #define kEncryptMask            0x05218947
 #define kLegalVolumeCreation    0xAA2D3E41
