@@ -11,7 +11,10 @@
 extern "C" {
 #endif
 
-#include <Movies.h>
+// #include <Movies.h>
+
+#include "GliderDefines.h"
+#include "GliderTypes.h"
 
 extern  Rect        blowerSrcRect;
 extern  Rect        flame[], tikiFlame[];
@@ -43,7 +46,7 @@ extern  Rect        ballSrc[], dripSrc[], fishSrc[];
 extern  Rect        clutterSrcRect;
 extern  Rect        flowerSrc[];
 extern  Rect        *srcRects;
-extern  Movie       theMovie;
+// extern  Movie       theMovie; // TODO Replace this!
 extern  Rect        movieRect;
 extern  Boolean     hasMovie, tvInRoom;
 extern  gliderType  theGlider, theGlider2;
@@ -53,7 +56,8 @@ extern  Rect        backSrcRect;
 extern  Rect        mainWindowRect, houseRect;
 extern  houseHand   thisHouse;
 extern  roomPtr     thisRoom;
-extern  WindowPtr   mainWindow, coordWindow;
+extern void*        mainWindow; // TODO Replace this!
+// extern  WindowPtr coordWindow; // TODO Remove coordWindow. I do not plan on making an editor with this project.
 extern  long        theScore;
 extern  short       playOriginH, playOriginV;
 extern  short       thisRoomNumber, theMode, batteryTotal, bandsTotal;
