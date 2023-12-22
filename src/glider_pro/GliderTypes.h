@@ -6,6 +6,7 @@ extern "C" {
 #endif
 
 #include <stdint.h>
+#include <stdbool.h>
 
 typedef uint32_t UInt32;
 typedef  int32_t SInt32;
@@ -13,19 +14,21 @@ typedef  int16_t UInt16;
 typedef  int16_t SInt16;
 typedef  uint8_t UInt8;
 typedef   int8_t SInt8;
+typedef    UInt8 Byte;
+typedef    SInt8 SignedByte;
 
 typedef struct
 {
-    int x;
-    int y;
-    int w;
-    int h;
+    SInt16 x;
+    SInt16 y;
+    SInt16 w;
+    SInt16 h;
 } Rect;
 
 typedef struct
 {
-    int x;
-    int y;
+    SInt16 x;
+    SInt16 y;
 } Point;
 
 typedef char Str255[256];
