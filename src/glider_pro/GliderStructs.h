@@ -11,7 +11,8 @@
 extern "C" {
 #endif
 
-#include <QDOffscreen.h>
+#include "GliderDefines.h"
+#include "GliderTypes.h"
 
 typedef struct
 {
@@ -101,21 +102,21 @@ typedef struct
 } objectType, *objectPtr;                   // total = 12
 typedef struct
 {
-    Str31           banner;                 // 32       = 32
-    Str15           names[kMaxScores];      // 16 * 10  = 160
-    long            scores[kMaxScores];     // 4 * 10   = 40
-    unsigned long   timeStamps[kMaxScores]; // 4 * 10   = 40
-    short           levels[kMaxScores];     // 2 * 10   = 20
-} scoresType;                               // total    = 292
+    Str31       banner;                     // 32      = 32
+    Str15       names[kMaxScores];          // 16 * 10 = 160
+    SInt32      scores[kMaxScores];         // 4  * 10 = 40
+    UInt32      timeStamps[kMaxScores];     // 4  * 10 = 40
+    short       levels[kMaxScores];         // 2  * 10 = 20
+} scoresType;                               // total   = 292
 typedef struct
 {
     short       version;                    // 2
     short       wasStarsLeft;               // 2
-    long        timeStamp;                  // 4
+    SInt32      timeStamp;                  // 4
     Point       where;                      // 4
-    long        score;                      // 4
-    long        unusedLong;                 // 4
-    long        unusedLong2;                // 4
+    SInt32      score;                      // 4
+    SInt32      unusedLong;                 // 4
+    SInt32      unusedLong2;                // 4
     short       energy;                     // 2
     short       bands;                      // 2
     short       roomNumber;                 // 2
@@ -138,11 +139,11 @@ typedef struct
     FSSpec      house;                      // 70
     short       version;                    // 2
     short       wasStarsLeft;               // 2
-    long        timeStamp;                  // 4
+    SInt32      timeStamp;                  // 4
     Point       where;                      // 4
-    long        score;                      // 4
-    long        unusedLong;                 // 4
-    long        unusedLong2;                // 4
+    SInt32      score;                      // 4
+    SInt32      unusedLong;                 // 4
+    SInt32      unusedLong2;                // 4
     short       energy;                     // 2
     short       bands;                      // 2
     short       roomNumber;                 // 2
@@ -173,8 +174,8 @@ typedef struct
 {
     short       version;                    // 2
     short       unusedShort;                // 2
-    long        timeStamp;                  // 4
-    long        flags;                      // 4 (bit 0 = wardBit)
+    SInt32      timeStamp;                  // 4
+    SInt32      flags;                      // 4 (bit 0 = wardBit)
     Point       initial;                    // 4
     Str255      banner;                     // 256
     Str255      trailer;                    // 256
@@ -214,7 +215,7 @@ typedef struct
 typedef struct
 {
     Rect        dest;
-    GWorldPtr   map;
+    //GWorldPtr   map; // TODO Check if this is needed.
     short       where;
     short       who;
 } savedType, *savedPtr;

@@ -16,6 +16,7 @@ typedef  uint8_t UInt8;
 typedef   int8_t SInt8;
 typedef    UInt8 Byte;
 typedef    SInt8 SignedByte;
+typedef     Byte Boolean;
 
 typedef struct
 {
@@ -34,7 +35,13 @@ typedef struct
 typedef char Str255[256];
 typedef char Str32[33];
 typedef char Str31[32];
+typedef char Str27[28];
 typedef char Str15[16];
+
+typedef struct
+{
+    Byte nothing[70];
+} FSSpec;
 
 #ifdef __cplusplus
 }
