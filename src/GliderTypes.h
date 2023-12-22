@@ -22,6 +22,17 @@ typedef struct
     int h;
 } Rect;
 
+typedef struct
+{
+    int x;
+    int y;
+} Point;
+
+typedef char Str255[256];
+typedef char Str32[33];
+typedef char Str31[32];
+typedef char Str15[16];
+
 #ifdef __cplusplus
 }
 #endif
