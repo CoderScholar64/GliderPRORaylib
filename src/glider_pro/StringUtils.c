@@ -30,7 +30,7 @@ StringPtr ToUpperCase(StringPtr convert)
 void PasStringCopy (StringPtr src, StringPtr dst)
 {
     // TODO Depreciate this function. Replace with strncpy not strcpy.
-    strcpy( dst, src );
+    strncpy( dst, src, sizeof(Str255) / sizeof(src[0]) );
 }
 
 //--------------------------------------------------------------  WhichStringFirst
