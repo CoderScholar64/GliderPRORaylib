@@ -12,11 +12,11 @@ static int PasStringCopyTest( const char *const name, StringPtr source, int blur
     
     if( compare != 0 ) {
         if( (blurt & 1) != 0 )
-            printf( "\"%s\" failed with %i.\n", name, compare );
+            printf( "\"%s\" failed with %i and %s.\n", name, compare, destin );
         return 1;
     }
     if( (blurt & 2) != 0 )
-        printf( "\"%s\" failed with %i.\n", name, compare );
+        printf( "\"%s\" succeeded with %i.\n", name, compare );
     return 0;
 }
 
@@ -40,6 +40,17 @@ int main() {
     if( PasStringCopyTest("PasStringCopy case 3", "", 1) )
         return 1;
     
+    // The buffer PasStringCopyTest. Checks for same size case.
+    {
+        char buffer[256];
+        
+        memset( buffer, 'A', sizeof(buffer) );
+        buffer[255] = '\0';
+        
+        if( PasStringCopyTest("PasStringCopy case 4", buffer, 1) )
+            return 1;
+    }
+    
     // The buffer PasStringCopyTest. Checks for overflow case
     {
         char buffer[512];
@@ -47,7 +58,7 @@ int main() {
         memset( buffer, 'A', sizeof(buffer) );
         buffer[511] = '\0';
         
-        if( !PasStringCopyTest("PasStringCopy case 4", buffer, 2) )
+        if( !PasStringCopyTest("PasStringCopy case 5", buffer, 2) )
             return 1;
     }
     

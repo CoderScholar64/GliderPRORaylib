@@ -30,7 +30,14 @@ StringPtr ToUpperCase(StringPtr convert)
 void PasStringCopy (StringPtr src, StringPtr dst)
 {
     // TODO Depreciate this function. Replace with strncpy not strcpy.
-    strncpy( dst, src, sizeof(Str255) / sizeof(src[0]) );
+    size_t length = strlen( src );
+    
+    if( length >= sizeof(Str255) / sizeof(src[0]) )
+        length = sizeof(Str255) / sizeof(src[0]) - 1;
+    
+    strncpy( dst, src, length );
+    
+    dst[ length ] = '\0';
 }
 
 //--------------------------------------------------------------  WhichStringFirst
@@ -73,6 +80,7 @@ void PasStringCopyNum (StringPtr src, StringPtr dst, short charsToCopy)
 // the first Pascal string.
 void PasStringConcat (StringPtr p1, StringPtr p2)
 {
+    // TODO Depreciate this function.
     snprintf( p1, sizeof(Str255) / sizeof(p1[0]), "%s%s", p1, p2 );
 }
 
