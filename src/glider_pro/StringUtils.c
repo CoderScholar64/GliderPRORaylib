@@ -81,7 +81,11 @@ void PasStringCopyNum (StringPtr src, StringPtr dst, short charsToCopy)
 void PasStringConcat (StringPtr p1, StringPtr p2)
 {
     // TODO Depreciate this function.
-    snprintf( p1, sizeof(Str255) / sizeof(p1[0]), "%s%s", p1, p2 );
+    Str255 swp;
+
+    PasStringCopy(p1, swp);
+
+    snprintf( p1, sizeof(Str255) / sizeof(p1[0]), "%s%s", swp, p2 );
 }
 
 //--------------------------------------------------------------  GetLineOfText
