@@ -95,32 +95,67 @@ void PasStringConcat (StringPtr p1, StringPtr p2)
 // is sought.
 void GetLineOfText (StringPtr srcStr, short index, StringPtr textLine)
 {
-    static const char RETURN_KEY_STR[] = {kReturnKeyASCII, '\0'};
-    
-    char * lastPtr = srcStr;
-    char * currentPtr = srcStr;
-    short current_index = 0;
-    
-    PasStringCopy("", textLine); // kReturnKeyASCII
-    
-    if(srcStr[0] == '\0')
+    // Clear textLine first!
+    textLine[0] = '\0';
+
+    // Cancel if negative number is used.
+    if( index < 0 )
         return;
-    
-    do {
-        lastPtr = currentPtr;
-        currentPtr = strpbrk( currentPtr, RETURN_KEY_STR );
-        
-        current_index++;
-        
-        if(currentPtr == NULL)
-            break;
-        
-        currentPtr++;
-    } while(current_index - 1 < index);
-    
-    if(current_index - 1 == index) {
-        strncpy(textLine, lastPtr, currentPtr - lastPtr);
-        textLine[currentPtr - lastPtr] = '\0';
+
+    StringPtr cur = srcStr;
+    StringPtr line = textLine;
+    short cur_index;
+
+    // Loop until we no longer get kReturnKeyASCII.
+    for(; *cur == kReturnKeyASCII; cur++) {
+        // Cancel this function if null is detected.
+        if( *cur == '\0')
+            return;
+    }
+
+    // If we already have the index then do this.
+    // Note: index is treated as zero for stability purposes.
+    if( index == 0 ) {
+        // Copy the line
+        while( *cur != kReturnKeyASCII && *cur != '\0' ) {
+            *line = *cur;
+
+            cur++;
+            line++;
+        }
+
+        // Add null termination to textLine
+        *line = '\0';
+    }
+
+    for(cur_index = 0; cur_index < index; cur_index++) {
+        // Loop normal characters until kReturnKeyASCII.
+        for(; *cur != kReturnKeyASCII; cur++) {
+            // Cancel this function if null is detected.
+            if( *cur == '\0')
+                return;
+        }
+
+        // Loop until we no longer get kReturnKeyASCII.
+        for(; *cur == kReturnKeyASCII; cur++) {
+            // Cancel this function if null is detected.
+            if( *cur == '\0')
+                return;
+        }
+    }
+
+    // If line had been found.
+    if( cur_index == index ) {
+        // Copy the line
+        while( *cur != kReturnKeyASCII && *cur != '\0' ) {
+            *line = *cur;
+
+            cur++;
+            line++;
+        }
+
+        // Add null termination to textLine
+        *line = '\0';
     }
 }
 //--------------------------------------------------------------  WrapText
