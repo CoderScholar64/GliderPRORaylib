@@ -214,24 +214,26 @@ void WrapText (StringPtr string255, short maxChars)
 // Walks a string looking for a space (denoting first word of string).
 void GetFirstWordOfString (StringPtr stringIn, StringPtr stringOut)
 {
-    int in = 0;
+    int in;
+    int out;
     
     PasStringCopy("", stringOut); // Clear stringOut
     
     // Skip space. Cancel if null is found.
-    for(; stringIn[in] == kSpaceBarASCII; in++) {
-        if(stringIn[in] != '\0')
+    for(in = 0; stringIn[in] == kSpaceBarASCII; in++) {
+        if(stringIn[in] == '\0')
             return; // A string consiting of spaces has no first word.
     }
     
     // Read Word to Stringout until either space or null.
-    for(int out = 0;
+    for(out = 0;
         stringIn[in] != kSpaceBarASCII && stringIn[in] != '\0' &&
         out < sizeof(Str255) / sizeof(stringIn[0]);
         out++, in++)
     {
         stringOut[out] = stringIn[in];
     }
+    stringOut[out] = '\0';
 }
 //--------------------------------------------------------------  CollapseStringToWidth
 // Given a string and a maximum width (in pixels), this function…
