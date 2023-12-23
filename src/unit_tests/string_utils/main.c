@@ -339,7 +339,7 @@ int main() {
 
         int compare = strcmp(paragraphs, answer);
 
-        if( compare == 0 ) {
+        if( compare != 0 ) {
             printf( "WrapText Failed for:\n\"%s\"\n", paragraphs);
             printf( "Expected:\n\"%s\"\n", answer);
             return 1;
@@ -418,7 +418,143 @@ int main() {
         }
     }
 
-    // TODO Add a case where a word is too big, but that would require adding a max length for wrap text unless all the strings in this game does not exceed 256 characters
+    // GetFirstWordOfString tests
+
+    // Blank test
+    {
+        Str255 sentence = "";
+        Str255 expectedWord = "";
+        Str255 word;
+
+        GetFirstWordOfString( sentence, word );
+
+        int compare = strcmp(word, expectedWord);
+
+        if( compare != 0 ) {
+            printf( "WrapText Failed for \"%s\".\n", sentence);
+            printf( "  Expected:\"%s\" Got:\"%s\"\n", expectedWord, word);
+            return 1;
+        }
+    }
+
+    // Space test
+    {
+        Str255 sentence = "   ";
+        Str255 expectedWord = "";
+        Str255 word;
+
+        GetFirstWordOfString( sentence, word );
+
+        int compare = strcmp(word, expectedWord);
+
+        if( compare != 0 ) {
+            printf( "WrapText Failed for \"%s\".\n", sentence);
+            printf( "  Expected:\"%s\" Got:\"%s\"\n", expectedWord, word);
+            return 1;
+        }
+    }
+
+    // Space test
+    {
+        Str255 sentence = "mesa";
+        Str255 expectedWord = "mesa";
+        Str255 word;
+
+        GetFirstWordOfString( sentence, word );
+
+        int compare = strcmp(word, expectedWord);
+
+        if( compare != 0 ) {
+            printf( "WrapText Failed for \"%s\".\n", sentence);
+            printf( "  Expected:\"%s\" Got:\"%s\"\n", expectedWord, word);
+            return 1;
+        }
+    }
+
+    // Single space word test
+    {
+        Str255 sentence = " mesa";
+        Str255 expectedWord = "mesa";
+        Str255 word;
+
+        GetFirstWordOfString( sentence, word );
+
+        int compare = strcmp(word, expectedWord);
+
+        if( compare != 0 ) {
+            printf( "WrapText Failed for \"%s\".\n", sentence);
+            printf( "  Expected:\"%s\" Got:\"%s\"\n", expectedWord, word);
+            return 1;
+        }
+    }
+
+    // Double space word test
+    {
+        Str255 sentence = "  mesa";
+        Str255 expectedWord = "mesa";
+        Str255 word;
+
+        GetFirstWordOfString( sentence, word );
+
+        int compare = strcmp(word, expectedWord);
+
+        if( compare != 0 ) {
+            printf( "WrapText Failed for \"%s\".\n", sentence);
+            printf( "  Expected:\"%s\" Got:\"%s\"\n", expectedWord, word);
+            return 1;
+        }
+    }
+
+    // Sentence word test
+    {
+        Str255 sentence = "mesa world testing";
+        Str255 expectedWord = "mesa";
+        Str255 word;
+
+        GetFirstWordOfString( sentence, word );
+
+        int compare = strcmp(word, expectedWord);
+
+        if( compare != 0 ) {
+            printf( "WrapText Failed for \"%s\".\n", sentence);
+            printf( "  Expected:\"%s\" Got:\"%s\"\n", expectedWord, word);
+            return 1;
+        }
+    }
+
+    // Single space sentence word test
+    {
+        Str255 sentence = " mesa world testing";
+        Str255 expectedWord = "mesa";
+        Str255 word;
+
+        GetFirstWordOfString( sentence, word );
+
+        int compare = strcmp(word, expectedWord);
+
+        if( compare != 0 ) {
+            printf( "WrapText Failed for \"%s\".\n", sentence);
+            printf( "  Expected:\"%s\" Got:\"%s\"\n", expectedWord, word);
+            return 1;
+        }
+    }
+
+    // Double space sentence word test
+    {
+        Str255 sentence = "  mesa world testing";
+        Str255 expectedWord = "mesa";
+        Str255 word;
+
+        GetFirstWordOfString( sentence, word );
+
+        int compare = strcmp(word, expectedWord);
+
+        if( compare != 0 ) {
+            printf( "WrapText Failed for \"%s\".\n", sentence);
+            printf( "  Expected:\"%s\" Got:\"%s\"\n", expectedWord, word);
+            return 1;
+        }
+    }
 
     return 0;
 }
