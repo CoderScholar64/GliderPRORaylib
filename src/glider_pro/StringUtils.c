@@ -76,8 +76,8 @@ void PasStringCopyNum (StringPtr src, StringPtr dst, short charsToCopy)
 }
 
 //--------------------------------------------------------------  PasStringConcat
-// This function concatenates the second Pascal string to the end of
-// the first Pascal string.
+// This function concatenates the second *C* string to the end of
+// the first *C* string.
 void PasStringConcat (StringPtr p1, StringPtr p2)
 {
     // TODO Depreciate this function.

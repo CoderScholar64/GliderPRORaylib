@@ -41,7 +41,22 @@ static int PasStringCopyNumTest( StringPtr source, short dst_limit, StringPtr ex
         printf( "\"%s\" copy with limit %i did not match \"%s\" but is instead \"%s\".\n", source, dst_limit, expected, destin );
         return 1;
     }
+    return 0;
+}
+
+static int PasStringConcatTest( StringPtr str1, StringPtr str2, StringPtr expected ) {
+    Str255 destin;
     
+    PasStringCopy(str1, destin);
+    
+    PasStringConcat(destin, str2);
+    
+    int compare = strcmp(destin, expected);
+    
+    if( compare != 0 ) {
+        printf( "PasStringConcat Failed \"%s\" and \"%s\" did not combine to \"%s\" but \"%s\".\n", str1, str2, expected, destin );
+        return 1;
+    }
     return 0;
 }
 
@@ -108,6 +123,12 @@ int main() {
         return 1;
     
     if( PasStringCopyNumTest( "Over", 4, "Over" ) )
+        return 1;
+    
+    if( PasStringConcatTest( "Game", "Over", "GameOver" ) )
+        return 1;
+    
+    if( PasStringConcatTest( "GameGame", "OverOverOver", "GameGameOverOverOver" ) )
         return 1;
     
     return 0;
