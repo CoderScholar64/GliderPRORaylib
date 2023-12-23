@@ -164,51 +164,50 @@ void GetLineOfText (StringPtr srcStr, short index, StringPtr textLine)
 // in order to ensure that no line of text exceeds maxChars.
 void WrapText (StringPtr string255, short maxChars)
 {
-    Str255 pageMemory;
-    StringPtr pageMemPtr = pageMemory;
-    StringPtr string255Ptr = string255;
-    short spacePos;
-    bool notFinished = true;
-    
-    memset(pageMemory, 0, sizeof(Str255));
-    
-    while( notFinished ) {
-        spacePos = 0;
-        
-        // If hit the kReturnKeyASCII cancel?, If hit kSpaceBarASCII then record it.
-        for(short i = 0; i < maxChars; i++) {
-            if(string255Ptr[i] == '\0') {
-                notFinished = false;
-                strncpy(pageMemPtr, string255Ptr, i);
+    // maxChars has to be greater than one
+    if(maxChars <= 0)
+        return;
+
+    size_t length = strlen( string255 );
+
+    // Cancel the operation if maxChars is not exceeded.
+    if(length <= maxChars)
+        return;
+
+    // Force the limit to there as well.
+    if( length >= sizeof(Str255) / sizeof(string255[0]))
+        length = sizeof(Str255) / sizeof(string255[0]) - 1;
+
+    for(short last_end = maxChars; last_end < length; last_end += maxChars) {
+        short index;
+
+        for(index = 0; index < maxChars; index++) {
+            StringPtr cur = &string255[last_end - index];
+
+            if(*cur == kSpaceBarASCII || *cur == kReturnKeyASCII || *cur == '\n') {
+                *cur = '\n';
+                last_end -= index;
                 break;
             }
-            else if(string255Ptr[i] == kReturnKeyASCII) {
-                spacePos = -1;
-                strncpy(pageMemPtr, string255Ptr, i);
-                pageMemPtr += i;
-                string255Ptr += i;
-                break;
-            }
-            else if(string255Ptr[i] == kSpaceBarASCII)
-                spacePos = i;
         }
-        
-        if( !notFinished && spacePos != -1 ) {
-            if(spacePos == 0) {
-                strncpy(pageMemPtr, string255Ptr, maxChars);
-                pageMemPtr[maxChars] = kReturnKeyASCII;
-                pageMemPtr += maxChars;
-                string255Ptr += maxChars;
-            }
-            else {
-                strncpy(pageMemPtr, string255Ptr, spacePos);
-                pageMemPtr[spacePos] = kReturnKeyASCII;
-                pageMemPtr += spacePos;
-                string255Ptr += spacePos;
-            }
+
+        if( index == maxChars ) {
+            for(size_t l = length; last_end < l; l--)
+                string255[l] = string255[l - 1];
+
+            string255[last_end] = '\n';
+
+            length++;
+
+            // Do not crash the system.
+            if( length >= sizeof(Str255) / sizeof(string255[0]))
+                length = sizeof(Str255) / sizeof(string255[0]) - 1;
+
+            last_end++;
+
+            string255[length] = '\0';
         }
     }
-    memcpy(string255, pageMemory, sizeof(Str255) / sizeof(pageMemory[0]));
 }
 
 //--------------------------------------------------------------  GetFirstWordOfString
