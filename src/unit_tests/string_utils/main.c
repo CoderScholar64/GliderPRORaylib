@@ -30,6 +30,21 @@ static int WhichStringFirstTest( StringPtr str1, StringPtr str2, int expected ) 
     return 0;
 }
 
+static int PasStringCopyNumTest( StringPtr source, short dst_limit, StringPtr expected ) {
+    Str255 destin = "";
+    
+    PasStringCopyNum( source, destin, dst_limit );
+    
+    int compare = strcmp(destin, expected);
+    
+    if( compare != 0 ) {
+        printf( "\"%s\" copy with limit %i did not match \"%s\" but is instead \"%s\".\n", source, dst_limit, expected, destin );
+        return 1;
+    }
+    
+    return 0;
+}
+
 int main() {
     if( PasStringCopyTest("PasStringCopy case 1", "Random Phrase", 1) )
         return 1;
@@ -84,6 +99,15 @@ int main() {
         return 1;
     
     if( WhichStringFirstTest("CASE", "cas", 1) )
+        return 1;
+    
+    if( PasStringCopyNumTest( "Overflow", 4, "Over" ) )
+        return 1;
+    
+    if( PasStringCopyNumTest( "Ov", 4, "Ov" ) )
+        return 1;
+    
+    if( PasStringCopyNumTest( "Over", 4, "Over" ) )
         return 1;
     
     return 0;
