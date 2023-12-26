@@ -10,7 +10,7 @@ extern "C" {
 
 typedef uint32_t UInt32;
 typedef  int32_t SInt32;
-typedef  int16_t UInt16;
+typedef uint16_t UInt16;
 typedef  int16_t SInt16;
 typedef  uint8_t UInt8;
 typedef   int8_t SInt8;

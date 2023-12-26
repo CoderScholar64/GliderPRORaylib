@@ -11,28 +11,28 @@
 extern "C" {
 #endif
 
-#include <Quickdraw.h>
+// #include <Quickdraw.h> // Old Mac reference
 
-void FrameWHRect (short, short, short, short);
+void FrameWHRect (SInt16, SInt16, SInt16, SInt16);
 void NormalizeRect (Rect *);
 void ZeroRectCorner (Rect *);
 void CenterRectOnPoint (Rect *, Point);
-short HalfRectWide (Rect *);
-short HalfRectTall (Rect *);
-short RectWide (Rect *);
-short RectTall (Rect *);
+SInt16 HalfRectWide (Rect *);
+SInt16 HalfRectTall (Rect *);
+SInt16 RectWide (Rect *);
+SInt16 RectTall (Rect *);
 void GlobalToLocalRect (Rect *);
 void LocalToGlobalRect (Rect *);
 void CenterRectInRect (Rect *, Rect *);
-void HOffsetRect (Rect *, short);
-void VOffsetRect (Rect *, short);
+void HOffsetRect (Rect *, SInt16);
+void VOffsetRect (Rect *, SInt16);
 Boolean IsRectLeftOfRect (Rect *, Rect *);
-void QOffsetRect (Rect *, short, short);
-void QSetRect (Rect *, short, short, short, short);
+void QOffsetRect (Rect *, SInt16, SInt16);
+void QSetRect (Rect *, SInt16, SInt16, SInt16, SInt16);
 Boolean ForceRectInRect (Rect *, Rect *);
 void QUnionSimilarRect (Rect *, Rect *, Rect *);
 void FrameRectSansCorners (Rect *);
-void SetEraseRect (short, short, short, short);
+void SetEraseRect (SInt16, SInt16, SInt16, SInt16);
 
 #ifdef __cplusplus
 }

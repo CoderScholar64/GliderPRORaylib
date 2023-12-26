@@ -9,7 +9,7 @@
 //--------------------------------------------------------------  FrameWHRect
 // Given the top left corner and a width and height, this function…
 // simply creates the necessary rectangle and frames it.
-void FrameWHRect (short left, short top, short wide, short high)
+void FrameWHRect (SInt16 left, SInt16 top, SInt16 wide, SInt16 high)
 {
     Rect        theRect;
     
@@ -24,7 +24,7 @@ void FrameWHRect (short left, short top, short wide, short high)
 // and that left is less than right.
 void NormalizeRect (Rect *theRect)
 {
-    short       tempSide;
+    SInt16       tempSide;
     
     if (theRect->left > theRect->right)
     {
@@ -61,25 +61,25 @@ void CenterRectOnPoint (Rect *theRect, Point where)
 }
 //--------------------------------------------------------------  HalfRectWide
 // Given a rectangle, this function returns the rect's width divided by 2.
-short HalfRectWide (Rect *theRect)
+SInt16 HalfRectWide (Rect *theRect)
 {
     return ((theRect->right - theRect->left) / 2);
 }
 //--------------------------------------------------------------  HalfRectTall
 // Given a rectangle, this function returns the rect's height divided by 2.
-short HalfRectTall (Rect *theRect)
+SInt16 HalfRectTall (Rect *theRect)
 {
     return ((theRect->bottom - theRect->top) / 2);
 }
 //--------------------------------------------------------------  RectWide
 // Given a rectangle, this simple function returns the rect's width.
-short RectWide (Rect *theRect)
+SInt16 RectWide (Rect *theRect)
 {
     return (theRect->right - theRect->left);
 }
 //--------------------------------------------------------------  RectTall
 // Given a rectangle, this simple function returns the rect's height.
-short RectTall (Rect *theRect)
+SInt16 RectTall (Rect *theRect)
 {
     return (theRect->bottom - theRect->top);
 }
@@ -112,7 +112,7 @@ void LocalToGlobalRect (Rect *theRect)
 // within the second.  The second rect is unchanged.
 void CenterRectInRect (Rect *rectA, Rect *rectB)
 {
-    short   widthA, tallA;
+    SInt16   widthA, tallA;
     
     widthA = RectWide(rectA);
     tallA = RectTall(rectA);
@@ -125,14 +125,14 @@ void CenterRectInRect (Rect *rectA, Rect *rectB)
 }
 //--------------------------------------------------------------  HOffsetRect
 // Just a simple function to offset a rectangle horizontally only.
-void HOffsetRect (Rect *theRect, short h)
+void HOffsetRect (Rect *theRect, SInt16 h)
 {
     theRect->left += h;
     theRect->right += h;
 }
 //--------------------------------------------------------------  VOffsetRect
 // Just a simple function to offset a rectangle vertically only.
-void VOffsetRect (Rect *theRect, short v)
+void VOffsetRect (Rect *theRect, SInt16 v)
 {
     theRect->top += v;
     theRect->bottom += v;
@@ -142,7 +142,7 @@ void VOffsetRect (Rect *theRect, short v)
 // is to the left of the second.
 Boolean IsRectLeftOfRect (Rect *rect1, Rect *rect2)
 {
-    short       offset;
+    SInt16       offset;
     
     offset = (rect1->right - rect1->left) - (rect2->right - rect2->left) / 2;
     if ((rect1->left) < (rect2->left + offset))
@@ -153,7 +153,7 @@ Boolean IsRectLeftOfRect (Rect *rect1, Rect *rect2)
 //--------------------------------------------------------------  QOffsetRect
 // This duplicates a Mac ToolBox call, but since it's local, it's faster.
 // It offsets a rectangle both vertically and horizontally.
-void QOffsetRect (Rect *theRect, short h, short v)
+void QOffsetRect (Rect *theRect, SInt16 h, SInt16 v)
 {
     theRect->right += h;
     theRect->left += h;
@@ -163,7 +163,7 @@ void QOffsetRect (Rect *theRect, short h, short v)
 //--------------------------------------------------------------  QSetRect
 // This also duplicates a ToolBox call.  It's needed often though, so…
 // any gains in speed are nice.  It sets up a rect structure.
-void QSetRect (Rect *theRect, short l, short t, short r, short b)
+void QSetRect (Rect *theRect, SInt16 l, SInt16 t, SInt16 r, SInt16 b)
 {
     theRect->left = l;
     theRect->top = t;
