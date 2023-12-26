@@ -20,16 +20,16 @@ typedef     Byte Boolean;
 
 typedef struct
 {
-    SInt16 x;
-    SInt16 y;
-    SInt16 w;
-    SInt16 h;
+    SInt16 right;
+    SInt16 left;
+    SInt16 top;
+    SInt16 bottom;
 } Rect;
 
 typedef struct
 {
-    SInt16 x;
-    SInt16 y;
+    SInt16 h; // horizontal
+    SInt16 v; // vertical
 } Point;
 
 typedef char  Str255[256];
