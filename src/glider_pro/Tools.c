@@ -124,7 +124,7 @@ void DrawToolName (void)
     Str255      theString;
     
     if (toolSelected == 0)
-        PasStringCopy("\pSelection Tool", theString);
+        PasStringCopy("Selection Tool", theString);
     else
         GetIndString(theString, kObjectNameStrings, 
                 toolSelected + ((toolMode - 1) * 0x0010));
@@ -262,10 +262,10 @@ void OpenToolsWindow (void)
         QOffsetRect(&toolTextRect, 0, 157 - 15);
         if (thisMac.hasColor)
             toolsWindow = NewCWindow(nil, &toolsWindowRect, 
-                    "\pTools", false, kWindoidWDEF, kPutInFront, true, 0L);
+                    "Tools", false, kWindoidWDEF, kPutInFront, true, 0L);
         else
             toolsWindow = NewWindow(nil, &toolsWindowRect, 
-                    "\pTools", false, kWindoidWDEF, kPutInFront, true, 0L);
+                    "Tools", false, kWindoidWDEF, kPutInFront, true, 0L);
         
         if (toolsWindow == nil)
             RedAlert(kErrNoMemory);

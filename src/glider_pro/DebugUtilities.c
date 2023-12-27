@@ -66,10 +66,10 @@ void CheckLegitRect(Rect *srcRect, Rect *inRect)
     Rect            dummyRect;
     
     if ((srcRect->left > srcRect->right) || (srcRect->top > srcRect->bottom))
-        DebugStr("\pSource Rectangle not dimensional");
+        DebugStr("Source Rectangle not dimensional");
     
     if (!SectRect(srcRect, inRect, &dummyRect))
-        DebugStr("\pSource Rectangle not Secting Target Rectangle");
+        DebugStr("Source Rectangle not Secting Target Rectangle");
 }
 /*==============================================================  DisplayLong  */
 void DisplayLong (long theValue)
@@ -278,32 +278,32 @@ void DumpToResEditFile (Ptr data, long dataSize)
     OSErr           theErr;
     short           iFileRef;
     
-    PasStringCopy("\pTerrain ", filesName);
+    PasStringCopy("Terrain ", filesName);
     
     GetDateTime(&dateTime);
     SecondsToDate(dateTime, &timeRec);
     tempLong = (long)timeRec.hour;
     NumToString(tempLong, dateStr);
     PasStringConcat(filesName, dateStr);
-    PasStringConcat(filesName, "\p-");
+    PasStringConcat(filesName, "-");
     tempLong = (long)timeRec.minute;
     NumToString(tempLong, dateStr);
     PasStringConcat(filesName, dateStr);
     
-    theErr = Create(filesName, 0, 'RSED', 'rsrc');
+    theErr = Create(filesName, 0, "RSED", "rsrc");
     if (theErr != noErr)
-        DebugStr("\p Create");
+        DebugStr(" Create");
     
     CreateResFile(filesName);
     if (ResError() != noErr)
-        DebugStr("\p CreateResFile");
+        DebugStr(" CreateResFile");
     
     iFileRef = OpenResFile(filesName);
     if ((ResError() != noErr) || (iFileRef == -1))
-        DebugStr("\p OpenResFile");
+        DebugStr(" OpenResFile");
     
     if (PtrToHand(data, &newResource, dataSize) != noErr)
-        DebugStr("\pPtrToHand");
-    AddResource(newResource, 'demo', 128, "\p");
+        DebugStr("PtrToHand");
+    AddResource(newResource, "demo", 128, "");
     ChangedResource(newResource);
 }

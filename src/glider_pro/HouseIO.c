@@ -64,7 +64,7 @@ void OpenHouseMovie (void)
     if (thisMac.hasQT)
     {
         theSpec = theHousesSpecs[thisHouseIndex];
-        PasStringConcat(theSpec.name, "\p.mov");
+        PasStringConcat(theSpec.name, ".mov");
         
         theErr = FSpGetFInfo(&theSpec, &finderInfo);
         if (theErr != noErr)
@@ -162,7 +162,7 @@ Boolean OpenHouse (void)
         return (false);
     
     #ifdef COMPILEDEMO
-    if (!EqualString(theHousesSpecs[thisHouseIndex].name, "\pDemo House", false, true))
+    if (!EqualString(theHousesSpecs[thisHouseIndex].name, "Demo House", false, true))
         return (false);
     #endif
     
@@ -238,7 +238,7 @@ Boolean SaveHouseAs (void)
         theErr = FSClose(houseRefNum);
         if (theErr != noErr)
         {
-            CheckFileError(theErr, "\pPreferences");
+            CheckFileError(theErr, "Preferences");
             return(false);
         }
                                                     // create new house file
@@ -569,7 +569,7 @@ Boolean QuerySaveChanges (void)
     
     InitCursor();
 //  CenterAlert(kSaveChangesAlert);
-    ParamText(thisHouseName, "\p", "\p", "\p");
+    ParamText(thisHouseName, "", "", "");
     hitWhat = Alert(kSaveChangesAlert, nil);
     if (hitWhat == kSaveChanges)
     {
@@ -613,7 +613,7 @@ void YellowAlert (short whichAlert, short identifier)
     NumToString((long)identifier, errNumStr);
     
 //  CenterAlert(kYellowAlert);
-    ParamText(errStr, errNumStr, "\p", "\p");
+    ParamText(errStr, errNumStr, "", "");
     
     whoCares = Alert(kYellowAlert, nil);
 }
@@ -637,7 +637,7 @@ Boolean IsFileReadOnly (FSSpec *theSpec)
     volPtr->ioVRefNum = theSpec->vRefNum;
     
     theErr = PBGetVInfo(&theBlock, false);
-    if (CheckFileError(theErr, "\pRead/Write"))
+    if (CheckFileError(theErr, "Read/Write"))
     {
         if (((volPtr->ioVAtrb & 0x0080) == 0x0080) || 
                 ((volPtr->ioVAtrb & 0x8000) == 0x8000))
@@ -652,7 +652,7 @@ Boolean IsFileReadOnly (FSSpec *theSpec)
             hBlock.fileParam.ioDirID = theSpec->parID;
             
             theErr = PBHGetFInfo(&hBlock, false);
-            if (CheckFileError(theErr, "\pRead/Write"))
+            if (CheckFileError(theErr, "Read/Write"))
             {
                 if ((hBlock.fileParam.ioFlAttrib & 0x0001) == 0x0001)
                     return (true);

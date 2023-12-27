@@ -57,37 +57,37 @@ void UpdateCoordWindow (void)
     SetPort((GrafPtr)coordWindow);
     EraseRect(&coordWindowRect);
     
-    PasStringCopy("\ph: ", tempStr);
+    PasStringCopy("h: ", tempStr);
     if (coordH != -1)
     {
         NumToString((long)coordH, numStr);
         PasStringConcat(tempStr, numStr);
     }
     else
-        PasStringConcat(tempStr, "\p-");
+        PasStringConcat(tempStr, "-");
     MoveTo(5, 12);
     DrawString(tempStr);
     
-    PasStringCopy("\pv: ", tempStr);
+    PasStringCopy("v: ", tempStr);
     if (coordV != -1)
     {
         NumToString((long)coordV, numStr);
         PasStringConcat(tempStr, numStr);
     }
     else
-        PasStringConcat(tempStr, "\p-");
+        PasStringConcat(tempStr, "-");
     MoveTo(4, 22);
     DrawString(tempStr);
     
     ForeColor(blueColor);
-    PasStringCopy("\pd: ", tempStr);
+    PasStringCopy("d: ", tempStr);
     if (coordD != -1)
     {
         NumToString((long)coordD, numStr);
         PasStringConcat(tempStr, numStr);
     }
     else
-        PasStringConcat(tempStr, "\p-");
+        PasStringConcat(tempStr, "-");
     MoveTo(5, 32);
     DrawString(tempStr);
     ForeColor(blackColor);
@@ -109,10 +109,10 @@ void OpenCoordWindow (void)
         QSetRect(&coordWindowRect, 0, 0, 50, 38);
         if (thisMac.hasColor)
             coordWindow = NewCWindow(nil, &coordWindowRect, 
-                    "\pTools", false, kWindoidWDEF, kPutInFront, true, 0L);
+                    "Tools", false, kWindoidWDEF, kPutInFront, true, 0L);
         else
             coordWindow = NewWindow(nil, &coordWindowRect, 
-                    "\pTools", false, kWindoidWDEF, kPutInFront, true, 0L);
+                    "Tools", false, kWindoidWDEF, kPutInFront, true, 0L);
         
         if (coordWindow == nil)
             RedAlert(kErrNoMemory);

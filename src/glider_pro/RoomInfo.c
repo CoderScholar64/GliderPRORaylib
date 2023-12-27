@@ -90,9 +90,9 @@ void UpdateRoomInfoDialog (DialogPtr theDialog)
     }
     
     if (GetNumberOfLights(thisRoomNumber) == 0)
-        SetDialogString(theDialog, kLitUnlitText, "\p(Room Is Dark)");
+        SetDialogString(theDialog, kLitUnlitText, "(Room Is Dark)");
     else
-        SetDialogString(theDialog, kLitUnlitText, "\p(Room Is Lit)");
+        SetDialogString(theDialog, kLitUnlitText, "(Room Is Lit)");
     
     FrameDialogItemC(theDialog, kRoomLocationBox, kRedOrangeColor8);
     FrameDialogItem(theDialog, kRoomTilesBox);
@@ -382,7 +382,7 @@ void DoRoomInfo (void)
     NumToString(thisRoom->floor, floorStr);
     NumToString(thisRoom->suite, suiteStr);
     NumToString(thisRoom->numObjects, objectsStr);
-    ParamText(floorStr, suiteStr, objectsStr, "\p");
+    ParamText(floorStr, suiteStr, objectsStr, "");
     
     theErr = CreateOffScreenGWorld(&tileSrcMap, &tileSrcRect, kPreferredDepth);
     SetGWorld(tileSrcMap, nil);

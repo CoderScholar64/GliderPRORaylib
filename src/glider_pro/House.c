@@ -69,8 +69,8 @@ Boolean CreateNewHouse (void)
             return (false);
     }
     
-    theErr = FSpCreate(&theSpec, 'ozm5', 'gliH', theReply.keyScript);
-    if (!CheckFileError(theErr, "\pNew House"))
+    theErr = FSpCreate(&theSpec, "ozm5", "gliH", theReply.keyScript);
+    if (!CheckFileError(theErr, "New House"))
         return (false);
     HCreateResFile(theSpec.vRefNum, theSpec.parID, theSpec.name);
     if (ResError() != noErr)
@@ -770,7 +770,7 @@ void ShiftWholeHouse (short howFar)
     short       i, h, numRooms;
     char        wasState;
     
-    OpenMessageWindow("\pShifting Whole House…");
+    OpenMessageWindow("Shifting Whole House...");
     SpinCursor(3);
     
     CopyThisRoomToRoom();

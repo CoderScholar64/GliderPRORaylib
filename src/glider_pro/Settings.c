@@ -312,10 +312,10 @@ void DoBrainsPrefs (void)
 //--------------------------------------------------------------  SetControlsToDefaults
 void SetControlsToDefaults (DialogPtr theDialog)
 {
-    PasStringCopy("\plf arrow", tempLeftStr);
-    PasStringCopy("\prt arrow", tempRightStr);
-    PasStringCopy("\pdn arrow", tempBattStr);
-    PasStringCopy("\pup arrow", tempBandStr);
+    PasStringCopy("lf arrow", tempLeftStr);
+    PasStringCopy("rt arrow", tempRightStr);
+    PasStringCopy("dn arrow", tempBattStr);
+    PasStringCopy("up arrow", tempBandStr);
     tempLeftMap = kLeftArrowKeyMap;
     tempRightMap = kRightArrowKeyMap;
     tempBattMap = kDownArrowKeyMap;
@@ -1180,10 +1180,10 @@ void SetAllDefaults (void)
     doPrettyMap = true;
     doBitchDialogs = true;
                                 // Default control settings
-    PasStringCopy("\plf arrow", leftName);
-    PasStringCopy("\prt arrow", rightName);
-    PasStringCopy("\pdn arrow", batteryName);
-    PasStringCopy("\pup arrow", bandName);
+    PasStringCopy("lf arrow", leftName);
+    PasStringCopy("rt arrow", rightName);
+    PasStringCopy("dn arrow", batteryName);
+    PasStringCopy("up arrow", bandName);
     theGlider.leftKey = kLeftArrowKeyMap;
     theGlider.rightKey = kRightArrowKeyMap;
     theGlider.battKey = kDownArrowKeyMap;

@@ -624,12 +624,12 @@ void CheckMemorySize (void)
 #ifdef COMPILEDEMO
 //      CenterAlert(kLowMemoryAlert);
         NumToString((bytesNeeded + kPaddingBytes) / 1024L, sizeStr);
-        ParamText(sizeStr, "\p", "\p", "\p");
+        ParamText(sizeStr, "", "", "");
         hitWhat = Alert(kLowMemoryAlert, nil);
 #else
 //      CenterAlert(kSetMemoryAlert);
         NumToString((bytesNeeded + kPaddingBytes) / 1024L, sizeStr);
-        ParamText(sizeStr, "\p", "\p", "\p");
+        ParamText(sizeStr, "", "", "");
         hitWhat = Alert(kSetMemoryAlert, nil);
 //      SetAppMemorySize(bytesNeeded + kPaddingBytes);
 #endif

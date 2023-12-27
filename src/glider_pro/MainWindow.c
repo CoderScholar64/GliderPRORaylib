@@ -44,10 +44,10 @@ void DrawOnSplash (void)
 {
     Str255      houseLoadedStr;
     
-    PasStringCopy("\pHouse: ", houseLoadedStr);
+    PasStringCopy("House: ", houseLoadedStr);
     PasStringConcat(houseLoadedStr, thisHouseName);
     if ((thisMac.hasQT) && (hasMovie))
-        PasStringConcat(houseLoadedStr, "\p (QT)");
+        PasStringConcat(houseLoadedStr, " (QT)");
     TextSize(9);
     TextFace(1);
     TextFont(applFont);
@@ -72,10 +72,10 @@ void DrawOnSplash (void)
     TextFont(systemFont);
     ForeColor(blackColor);
     MoveTo(splashOriginH + 5, splashOriginV + 457);
-    DrawString("\pPowerPC Native!");
+    DrawString("PowerPC Native!");
     ForeColor(whiteColor);
     MoveTo(splashOriginH + 4, splashOriginV + 456);
-    DrawString("\pPowerPC Native!");
+    DrawString("PowerPC Native!");
     ForeColor(blackColor);
     #endif
 }
@@ -282,22 +282,22 @@ void UpdateEditWindowTitle (void)
         return;
     
     PasStringCopy(thisHouseName, newTitle);
-    PasStringConcat(newTitle, "\p - ");
+    PasStringConcat(newTitle, " - ");
     if (noRoomAtAll)
-        PasStringConcat(newTitle, "\pNo rooms");
+        PasStringConcat(newTitle, "No rooms");
     else if (houseUnlocked)
     {
         PasStringConcat(newTitle, thisRoom->name);
-        PasStringConcat(newTitle, "\p (");
+        PasStringConcat(newTitle, " (");
         NumToString((long)thisRoom->floor, tempStr);
         PasStringConcat(newTitle, tempStr);
-        PasStringConcat(newTitle, "\p, ");
+        PasStringConcat(newTitle, ", ");
         NumToString((long)thisRoom->suite, tempStr);
         PasStringConcat(newTitle, tempStr);
-        PasStringConcat(newTitle, "\p)");
+        PasStringConcat(newTitle, ")");
     }
     else
-        PasStringConcat(newTitle, "\pHouse Locked");
+        PasStringConcat(newTitle, "House Locked");
     SetWTitle(mainWindow, newTitle);
 }
 #endif

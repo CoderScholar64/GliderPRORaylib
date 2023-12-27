@@ -345,7 +345,7 @@ void OpenMapWindow (void)
                 mapRoomsWide * kMapRoomWidth + kMapScrollBarWidth - 2, 
                 mapRoomsHigh * kMapRoomHeight + kMapScrollBarWidth - 2);
         mapWindow = NewCWindow(nil, &mapWindowRect, 
-                    "\pMap", false, kWindoidGrowWDEF, kPutInFront, true, 0L);
+                    "Map", false, kWindoidGrowWDEF, kPutInFront, true, 0L);
         
         if (mapWindow == nil)
             RedAlert(kErrNoMemory);
@@ -375,12 +375,12 @@ void OpenMapWindow (void)
         QSetRect(&mapVScrollRect, mapRoomsWide * kMapRoomWidth, -1, 
                 mapRoomsWide * kMapRoomWidth + kMapScrollBarWidth, 
                 mapRoomsHigh * kMapRoomHeight + 1);
-        mapHScroll = NewControl(mapWindow, &mapHScrollRect, "\p", true, mapLeftRoom, 
+        mapHScroll = NewControl(mapWindow, &mapHScrollRect, "", true, mapLeftRoom,
                 0, kMaxNumRoomsH - mapRoomsWide, scrollBarProc, kHScrollRef);
         if (mapHScroll == nil)
             RedAlert(kErrNoMemory);
         
-        mapVScroll = NewControl(mapWindow, &mapVScrollRect, "\p", true, mapTopRoom, 
+        mapVScroll = NewControl(mapWindow, &mapVScrollRect, "", true, mapTopRoom,
                 0, kMaxNumRoomsV - mapRoomsHigh, scrollBarProc, kVScrollRef);
         if (mapVScroll == nil)
             RedAlert(kErrNoMemory);

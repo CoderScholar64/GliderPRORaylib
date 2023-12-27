@@ -612,7 +612,7 @@ void DoDirSearch (void)
         demoHouseIndex = -1;
         for (i = 0; i < housesFound; i++)
         {
-            if (EqualString(theHousesSpecs[i].name, "\pDemo House", false, true))
+            if (EqualString(theHousesSpecs[i].name, "Demo House", false, true))
             {
                 demoHouseIndex = i;
                 break;

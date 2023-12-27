@@ -201,10 +201,10 @@ void OpenLinkWindow (void)
         QSetRect(&linkWindowRect, 0, 0, 129, 30);
         if (thisMac.hasColor)
             linkWindow = NewCWindow(nil, &linkWindowRect, 
-                    "\pLink", false, kWindoidWDEF, kPutInFront, true, 0L);
+                    "Link", false, kWindoidWDEF, kPutInFront, true, 0L);
         else
             linkWindow = NewWindow(nil, &linkWindowRect, 
-                    "\pLink", false, kWindoidWDEF, kPutInFront, true, 0L);
+                    "Link", false, kWindoidWDEF, kPutInFront, true, 0L);
         
         MoveWindow(linkWindow, isLinkH, isLinkV, true);
         globalMouse = MyGetGlobalMouse();

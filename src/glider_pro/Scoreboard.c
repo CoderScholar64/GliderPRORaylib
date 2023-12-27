@@ -138,11 +138,11 @@ void RefreshRoomTitle (short mode)
     switch (mode)
     {
         case kEscapedTitleMode:
-        DrawString("\pHit Delete key if unable to Follow");
+        DrawString("Hit Delete key if unable to Follow");
         break;
         
         case kSavingTitleMode:
-        DrawString("\pSaving Game…");
+        DrawString("Saving Game…");
         break;
         
         default:
@@ -154,11 +154,11 @@ void RefreshRoomTitle (short mode)
     switch (mode)
     {
         case kEscapedTitleMode:
-        DrawString("\pHit Delete key if unable to Follow");
+        DrawString("Hit Delete key if unable to Follow");
         break;
         
         case kSavingTitleMode:
-        DrawString("\pSaving Game…");
+        DrawString("Saving Game…");
         break;
         
         default:

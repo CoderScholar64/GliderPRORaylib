@@ -645,7 +645,7 @@ void CheckDuplicateFloorSuite (void)
             bitPlace = (((*thisHouse)->rooms[i].floor + 7) * 128) + 
                     (*thisHouse)->rooms[i].suite;
             if ((bitPlace < 0) || (bitPlace >= 8192))
-                DebugStr("\pBlew array");
+                DebugStr("Blew array");
             if (pidgeonHoles[bitPlace] != 0)
             {
                 houseErrors++;
@@ -811,7 +811,7 @@ void CountUntitledRooms (void)
     for (i = 0; i < numRooms; i++)
     {
         if (((*thisHouse)->rooms[i].suite != kRoomIsEmpty) && 
-                (EqualString((*thisHouse)->rooms[i].name, "\pUntitled Room", false, true)))
+                (EqualString((*thisHouse)->rooms[i].name, "Untitled Room", false, true)))
             houseErrors++;
     }
     

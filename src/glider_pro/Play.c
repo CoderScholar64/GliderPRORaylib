@@ -144,7 +144,7 @@ void NewGame (short mode)
 //  else
 //      DissBits(&workSrcRect);
     
-//  DebugStr("\pIf screen isn't black, exit to shell.");    // TEMP TEMP TEMP
+//  DebugStr("If screen isn't black, exit to shell.");    // TEMP TEMP TEMP
     
     DrawLocale();
     RefreshScoreboard(kNormalTitleMode);

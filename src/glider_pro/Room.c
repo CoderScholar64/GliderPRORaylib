@@ -152,7 +152,7 @@ Boolean CreateNewRoom (short h, short v)
     
     CopyThisRoomToRoom();                   // save off current room
     
-    PasStringCopy("\pUntitled Room", thisRoom->name);
+    PasStringCopy("Untitled Room", thisRoom->name);
     thisRoom->leftStart = 32;               // fill out fields of new room
     thisRoom->rightStart = 32;
     thisRoom->bounds = 0;
@@ -240,9 +240,9 @@ void ReadyBackground (short theID, short *theTiles)
         ForeColor(blackColor);
         MoveTo(10, 20);
         if (houseUnlocked)
-            DrawString("\pNo rooms");
+            DrawString("No rooms");
         else
-            DrawString("\pNothing to show");
+            DrawString("Nothing to show");
         
         CopyBits((BitMap *)*GetGWorldPixMap(workSrcMap), 
                 (BitMap *)*GetGWorldPixMap(backSrcMap), 
@@ -253,7 +253,7 @@ void ReadyBackground (short theID, short *theTiles)
     thePicture = GetPicture(theID);
     if (thePicture == nil)
     {
-        thePicture = (PicHandle)GetResource('Date', theID);
+        thePicture = (PicHandle)GetResource("Date", theID);
         if (thePicture == nil)
         {
             YellowAlert(kYellowNoBackground, 0);

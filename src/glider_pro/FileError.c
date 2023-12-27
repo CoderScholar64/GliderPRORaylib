@@ -83,7 +83,7 @@ Boolean CheckFileError (short resultCode, StringPtr fileName)
     
     GetIndString(errMessage, rFileErrorStrings, stringIndex);
     NumToString((long)resultCode, errNumString);
-    ParamText(errMessage, errNumString, fileName, "\p");
+    ParamText(errMessage, errNumString, fileName, "");
     
 //  CenterAlert(rFileErrorAlert);
     dummyInt = Alert(rFileErrorAlert, 0L);

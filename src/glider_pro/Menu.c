@@ -684,9 +684,9 @@ short QueryResumeGame (void)
     NumToString(hadPoints, scoreStr);           // param text strings
     NumToString((long)hadGliders, glidStr);
     if (hadGliders == 1)
-        ParamText(glidStr, "\p", scoreStr, "\p");
+        ParamText(glidStr, "", scoreStr, "");
     else
-        ParamText(glidStr, "\ps", scoreStr, "\p");
+        ParamText(glidStr, "s", scoreStr, "");
     
 //  CenterDialog(kResumeGameDial);
     theDial = GetNewDialog(kResumeGameDial, nil, kPutInFront);

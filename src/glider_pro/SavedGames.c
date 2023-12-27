@@ -52,9 +52,9 @@ void SaveGame2 (void)
     GetFirstWordOfString(thisHouseName, gameNameStr);
     if (gameNameStr[0] > 23)
         gameNameStr[0] = 23;
-    PasStringConcat(gameNameStr, "\p Game");
+    PasStringConcat(gameNameStr, " Game");
     
-    StandardPutFile("\pSave Game As:", gameNameStr, &theReply);
+    StandardPutFile("Save Game As:", gameNameStr, &theReply);
     if (!theReply.sfGood)
         return;
     
@@ -62,11 +62,11 @@ void SaveGame2 (void)
     {
         theErr = FSMakeFSSpec(theReply.sfFile.vRefNum, theReply.sfFile.parID, 
                 theReply.sfFile.name, &tempSpec);
-        if (!CheckFileError(theErr, "\pSaved Game"))
+        if (!CheckFileError(theErr, "Saved Game"))
             return;
         
         theErr = FSpDelete(&tempSpec);
-        if (!CheckFileError(theErr, "\pSaved Game"))
+        if (!CheckFileError(theErr, "Saved Game"))
             return;
     }
     
@@ -108,25 +108,25 @@ void SaveGame2 (void)
     HSetState((Handle)thisHouse, wasState);
     
     theErr = FSpCreate(&theReply.sfFile, 'ozm5', 'gliG', theReply.sfScript);
-    if (CheckFileError(theErr, "\pSaved Game"))
+    if (CheckFileError(theErr, "Saved Game"))
     {
         theErr = FSpOpenDF(&theReply.sfFile, fsCurPerm, &gameRefNum);
-        if (CheckFileError(theErr, "\pSaved Game"))
+        if (CheckFileError(theErr, "Saved Game"))
         {
             theErr = SetFPos(gameRefNum, fsFromStart, 0L);
-            if (CheckFileError(theErr, "\pSaved Game"))
+            if (CheckFileError(theErr, "Saved Game"))
             {
                 theErr = FSWrite(gameRefNum, &byteCount, (Ptr)savedGame);
-                if (CheckFileError(theErr, "\pSaved Game"))
+                if (CheckFileError(theErr, "Saved Game"))
                 {
                     theErr = SetEOF(gameRefNum, byteCount);
-                    if (CheckFileError(theErr, "\pSaved Game"))
+                    if (CheckFileError(theErr, "Saved Game"))
                     {
                     }
                 }
             }
             theErr = FSClose(gameRefNum);
-            if (CheckFileError(theErr, "\pSaved Game"))
+            if (CheckFileError(theErr, "Saved Game"))
             {
             }
         }
@@ -143,7 +143,7 @@ void SavedGameMismatchError (StringPtr gameName)
     InitCursor();
     
 //  CenterAlert(kSavedGameErrorAlert);
-    ParamText(gameName, thisHouseName, "\p", "\p");
+    ParamText(gameName, thisHouseName, "", "");
     
     whoCares = Alert(kSavedGameErrorAlert, nil);
 }
@@ -170,11 +170,11 @@ return false;       // TEMP fix this iwth NavServices
         return(false);
     
     theErr = FSpOpenDF(&theReply.sfFile, fsCurPerm, &gameRefNum);
-    if (!CheckFileError(theErr, "\pSaved Game"))
+    if (!CheckFileError(theErr, "Saved Game"))
         return(false);
     
     theErr = GetEOF(gameRefNum, &byteCount);
-    if (!CheckFileError(theErr, "\pSaved Game"))
+    if (!CheckFileError(theErr, "Saved Game"))
     {
         theErr = FSClose(gameRefNum);
         return(false);
@@ -189,7 +189,7 @@ return false;       // TEMP fix this iwth NavServices
     }
     
     theErr = SetFPos(gameRefNum, fsFromStart, 0L);
-    if (!CheckFileError(theErr, "\pSaved Game"))
+    if (!CheckFileError(theErr, "Saved Game"))
     {
         DisposePtr((Ptr)savedGame);
         theErr = FSClose(gameRefNum);
@@ -197,7 +197,7 @@ return false;       // TEMP fix this iwth NavServices
     }
     
     theErr = FSRead(gameRefNum, &byteCount, savedGame);
-    if (!CheckFileError(theErr, "\pSaved Game"))
+    if (!CheckFileError(theErr, "Saved Game"))
     {
         DisposePtr((Ptr)savedGame);
         theErr = FSClose(gameRefNum);
@@ -272,7 +272,7 @@ return false;       // TEMP fix this iwth NavServices
     DisposePtr((Ptr)savedGame);
     
     theErr = FSClose(gameRefNum);
-    if (!CheckFileError(theErr, "\pSaved Game"))
+    if (!CheckFileError(theErr, "Saved Game"))
         return (false);
     
     return (true);

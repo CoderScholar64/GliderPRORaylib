@@ -127,7 +127,7 @@ void RedAlert (short errorNumber)
         GetIndString(errMessage, rErrMssgID, 1);
     }
     NumToString((long)errorNumber, errNumberString);
-    ParamText(errTitle, errMessage, errNumberString, "\p");
+    ParamText(errTitle, errMessage, errNumberString, "");
 //  CenterAlert(rDeathAlertID);
     
     dummyInt = Alert(rDeathAlertID, nil);
@@ -488,12 +488,12 @@ void GetKeyName (long message, StringPtr theName)
         
         if ((theVirtual >= 0x0041) && (theVirtual <= 0x005C))
         {
-            PasStringCopy("\p( )", theName);
+            PasStringCopy("( )", theName);
             theName[2] = (char)theASCII;
         }
         else
         {
-            PasStringCopy("\p  key", theName);
+            PasStringCopy("  key", theName);
             theName[1] = (char)theASCII;
         }
     }
@@ -502,88 +502,88 @@ void GetKeyName (long message, StringPtr theName)
         switch (theASCII)
         {
             case kHomeKeyASCII:
-            PasStringCopy("\phome", theName);
+            PasStringCopy("home", theName);
             break;
             
             case kEnterKeyASCII:
-            PasStringCopy("\penter", theName);
+            PasStringCopy("enter", theName);
             break;
             
             case kEndKeyASCII:
-            PasStringCopy("\pend", theName);
+            PasStringCopy("end", theName);
             break;
             
             case kHelpKeyASCII:
-            PasStringCopy("\phelp", theName);
+            PasStringCopy("help", theName);
             break;
             
             case kDeleteKeyASCII:
-            PasStringCopy("\pdelete", theName);
+            PasStringCopy("delete", theName);
             break;
             
             case kTabKeyASCII:
-            PasStringCopy("\ptab", theName);
+            PasStringCopy("tab", theName);
             break;
             
             case kPageUpKeyASCII:
-            PasStringCopy("\ppg up", theName);
+            PasStringCopy("pg up", theName);
             break;
             
             case kPageDownKeyASCII:
-            PasStringCopy("\ppg dn", theName);
+            PasStringCopy("pg dn", theName);
             break;
             
             case kReturnKeyASCII:
-            PasStringCopy("\preturn", theName);
+            PasStringCopy("return", theName);
             break;
             
             case kFunctionKeyASCII:
             switch (theVirtual)
             {
                 case 0x0060:
-                PasStringCopy("\pF5", theName);
+                PasStringCopy("F5", theName);
                 break;
                 case 0x0061:
-                PasStringCopy("\pF6", theName);
+                PasStringCopy("F6", theName);
                 break;
                 case 0x0062:
-                PasStringCopy("\pF7", theName);
+                PasStringCopy("F7", theName);
                 break;
                 case 0x0063:
-                PasStringCopy("\pF3", theName);
+                PasStringCopy("F3", theName);
                 break;
                 case 0x0064:
-                PasStringCopy("\pF8", theName);
+                PasStringCopy("F8", theName);
                 break;
                 case 0x0065:
-                PasStringCopy("\pF9", theName);
+                PasStringCopy("F9", theName);
                 break;
                 case 0x0067:
-                PasStringCopy("\pF11", theName);
+                PasStringCopy("F11", theName);
                 break;
                 case 0x0069:
-                PasStringCopy("\pF13", theName);
+                PasStringCopy("F13", theName);
                 break;
                 case 0x006B:
-                PasStringCopy("\pF14", theName);
+                PasStringCopy("F14", theName);
                 break;
                 case 0x006D:
-                PasStringCopy("\pF10", theName);
+                PasStringCopy("F10", theName);
                 break;
                 case 0x006F:
-                PasStringCopy("\pF12", theName);
+                PasStringCopy("F12", theName);
                 break;
                 case 0x0071:
-                PasStringCopy("\pF15", theName);
+                PasStringCopy("F15", theName);
                 break;
                 case 0x0076:
-                PasStringCopy("\pF4", theName);
+                PasStringCopy("F4", theName);
                 break;
                 case 0x0078:
-                PasStringCopy("\pF2", theName);
+                PasStringCopy("F2", theName);
                 break;
                 case 0x007A:
-                PasStringCopy("\pF1", theName);
+                PasStringCopy("F1", theName);
                 break;
                 default:
                 NumToString(theVirtual, theName);
@@ -592,42 +592,42 @@ void GetKeyName (long message, StringPtr theName)
             break;
             
             case kClearKeyASCII:
-            PasStringCopy("\pclear", theName);
+            PasStringCopy("clear", theName);
             break;
             
             case kEscapeKeyASCII:
             if (theVirtual == 0x0047)
-                PasStringCopy("\pclear", theName);
+                PasStringCopy("clear", theName);
             else
-                PasStringCopy("\pesc", theName);
+                PasStringCopy("esc", theName);
             break;
             
             case kLeftArrowKeyASCII:
-            PasStringCopy("\plf arrow", theName);
+            PasStringCopy("lf arrow", theName);
             break;
             
             case kRightArrowKeyASCII:
-            PasStringCopy("\prt arrow", theName);
+            PasStringCopy("rt arrow", theName);
             break;
             
             case kUpArrowKeyASCII:
-            PasStringCopy("\pup arrow", theName);
+            PasStringCopy("up arrow", theName);
             break;
             
             case kDownArrowKeyASCII:
-            PasStringCopy("\pdn arrow", theName);
+            PasStringCopy("dn arrow", theName);
             break;
             
             case kSpaceBarASCII:
-            PasStringCopy("\pspace", theName);
+            PasStringCopy("space", theName);
             break;
             
             case kForwardDeleteASCII:
-            PasStringCopy("\pfrwd del", theName);
+            PasStringCopy("frwd del", theName);
             break;
             
             default:
-            PasStringCopy("\p????", theName);
+            PasStringCopy("????", theName);
             break;
         }
     }

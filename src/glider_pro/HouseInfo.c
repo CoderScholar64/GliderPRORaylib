@@ -213,7 +213,7 @@ void DoHouseInfo (void)
     NumToString((long)version % 0x0100, loVers);    // the 1's and 1/10th's part.
     NumToString((long)numRooms, nRoomsStr);         // Number of rooms -> string.
     
-    ParamText(versStr, loVers, nRoomsStr, "\p");
+    ParamText(versStr, loVers, nRoomsStr, "");
     
 //  CenterDialog(kHouseInfoDialogID);
     houseInfoDialog = GetNewDialog(kHouseInfoDialogID, nil, kPutInFront);

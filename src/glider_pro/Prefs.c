@@ -11,10 +11,10 @@
 #include <ToolUtils.h>
 #include "Externs.h"
 #include "Environ.h"
-#define kPrefCreatorType    'ozm5'
-#define kPrefFileType       'gliP'
-#define kPrefFileName       "\pGlider Prefs"
-#define kDefaultPrefFName   "\pPreferences"
+#define kPrefCreatorType    "ozm5"
+#define kPrefFileType       "gliP"
+#define kPrefFileName       "Glider Prefs"
+#define kDefaultPrefFName   "Preferences"
 #define kPrefsStringsID     160
 #define kNewPrefsAlertID    160
 #define kPrefsFNameIndex    1
@@ -73,7 +73,7 @@ Boolean CreatePrefsFolder (short *systemVolRef)
     theErr = PBDirCreate((HParmBlkPtr)&fileParamBlock, false);
     if (theErr != noErr)
     {
-        CheckFileError(theErr, "\pPreferences");
+        CheckFileError(theErr, "Preferences");
         return(false);
     }
     return(true);
@@ -92,20 +92,20 @@ Boolean WritePrefs (long *prefDirID, short *systemVolRef, prefsInfo *thePrefs)
     {
         if (theErr != fnfErr)
         {
-            CheckFileError(theErr, "\pPreferences");
+            CheckFileError(theErr, "Preferences");
             return(false);
         }
         theErr = FSpCreate(&theSpecs, kPrefCreatorType, kPrefFileType, smSystemScript);
         if (theErr != noErr)
         {
-            CheckFileError(theErr, "\pPreferences");
+            CheckFileError(theErr, "Preferences");
             return(false);
         }
     }
     theErr = FSpOpenDF(&theSpecs, fsRdWrPerm, &fileRefNum);
     if (theErr != noErr)
     {
-        CheckFileError(theErr, "\pPreferences");
+        CheckFileError(theErr, "Preferences");
         return(false);
     }
     
@@ -114,14 +114,14 @@ Boolean WritePrefs (long *prefDirID, short *systemVolRef, prefsInfo *thePrefs)
     theErr = FSWrite(fileRefNum, &byteCount, thePrefs);
     if (theErr != noErr)
     {
-        CheckFileError(theErr, "\pPreferences");
+        CheckFileError(theErr, "Preferences");
         return(false);
     }
     
     theErr = FSClose(fileRefNum);
     if (theErr != noErr)
     {
-        CheckFileError(theErr, "\pPreferences");
+        CheckFileError(theErr, "Preferences");
         return(false);
     }
     
@@ -159,7 +159,7 @@ OSErr ReadPrefs (long *prefDirID, short *systemVolRef, prefsInfo *thePrefs)
             return(theErr);
         else
         {
-            CheckFileError(theErr, "\pPreferences");
+            CheckFileError(theErr, "Preferences");
             return(theErr);
         }
     }
@@ -167,7 +167,7 @@ OSErr ReadPrefs (long *prefDirID, short *systemVolRef, prefsInfo *thePrefs)
     theErr = FSpOpenDF(&theSpecs, fsRdWrPerm, &fileRefNum);
     if (theErr != noErr)
     {
-        CheckFileError(theErr, "\pPreferences");
+        CheckFileError(theErr, "Preferences");
         return(theErr);
     }
     
@@ -180,7 +180,7 @@ OSErr ReadPrefs (long *prefDirID, short *systemVolRef, prefsInfo *thePrefs)
             theErr = FSClose(fileRefNum);
         else
         {
-            CheckFileError(theErr, "\pPreferences");
+            CheckFileError(theErr, "Preferences");
             theErr = FSClose(fileRefNum);
         }
         return(theErr);
@@ -189,7 +189,7 @@ OSErr ReadPrefs (long *prefDirID, short *systemVolRef, prefsInfo *thePrefs)
     theErr = FSClose(fileRefNum);
     if (theErr != noErr)
     {
-        CheckFileError(theErr, "\pPreferences");
+        CheckFileError(theErr, "Preferences");
         return(theErr);
     }
     

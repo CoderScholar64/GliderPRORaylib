@@ -42,7 +42,7 @@ void ReadInPrefs (void)
     if (LoadPrefs(&thePrefs, kPrefsVersion))
     {
 #ifdef COMPILEDEMO
-        PasStringCopy("\pDemo House", thisHouseName);
+        PasStringCopy("Demo House", thisHouseName);
 #else
         PasStringCopy(thePrefs.wasDefaultName, thisHouseName);
 #endif
@@ -103,16 +103,16 @@ void ReadInPrefs (void)
     else
     {
 #ifdef COMPILEDEMO
-        PasStringCopy("\pDemo House", thisHouseName);
+        PasStringCopy("Demo House", thisHouseName);
 #else
-        PasStringCopy("\pSlumberland", thisHouseName);
+        PasStringCopy("Slumberland", thisHouseName);
 #endif
-        PasStringCopy("\plf arrow", leftName);
-        PasStringCopy("\prt arrow", rightName);
-        PasStringCopy("\pdn arrow", batteryName);
-        PasStringCopy("\pup arrow", bandName);
-        PasStringCopy("\pYour Name", highName);
-        PasStringCopy("\pYour Message Here", highBanner);
+        PasStringCopy("lf arrow", leftName);
+        PasStringCopy("rt arrow", rightName);
+        PasStringCopy("dn arrow", batteryName);
+        PasStringCopy("up arrow", bandName);
+        PasStringCopy("Your Name", highName);
+        PasStringCopy("Your Message Here", highBanner);
         theGlider.leftKey = kLeftArrowKeyMap;
         theGlider.rightKey = kRightArrowKeyMap;
         theGlider.battKey = kDownArrowKeyMap;
@@ -190,7 +190,7 @@ void WriteOutPrefs (void)
     UnivGetSoundVolume(&isVolume, thisMac.hasSM3);
     
 #ifdef COMPILEDEMO
-    PasStringCopy("\pDemo House", thePrefs.wasDefaultName);
+    PasStringCopy("Demo House", thePrefs.wasDefaultName);
 #else
     PasStringCopy(thisHouseName, thePrefs.wasDefaultName);
 #endif
@@ -266,7 +266,7 @@ void main (void)
         RedAlert(kErrNeedSystem7);
     if (thisMac.numScreens == 0)
         RedAlert(kErrNeed16Or256Colors);
-//  dataResFile = OpenResFile("\pMermaid");
+//  dataResFile = OpenResFile("Mermaid");
     SetUpAppleEvents();
     LoadCursors();
     ReadInPrefs();

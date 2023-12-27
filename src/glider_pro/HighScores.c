@@ -119,9 +119,9 @@ void DrawHighScores (void)
     TextFace(bold);
     TextSize(14);
     
-    PasStringCopy("\p• ", tempStr);
+    PasStringCopy("* ", tempStr);
     PasStringConcat(tempStr, thisHouseName);
-    PasStringConcat(tempStr, "\p •");
+    PasStringConcat(tempStr, " *");
     MoveTo(scoreLeft + ((kScoreWide - StringWidth(tempStr)) / 2) - 1, dropIt - 66);
     ForeColor(blackColor);
     DrawString(tempStr);
@@ -314,7 +314,7 @@ void ZeroHighScores (void)
     PasStringCopy(thisHouseName, thisHousePtr->highScores.banner);
     for (i = 0; i < kMaxScores; i++)
     {
-        PasStringCopy("\p--------------", thisHousePtr->highScores.names[i]);
+        PasStringCopy("--------------", thisHousePtr->highScores.names[i]);
         thisHousePtr->highScores.scores[i] = 0L;
         thisHousePtr->highScores.timeStamps[i] = 0L;
         thisHousePtr->highScores.levels[i] = 0;
@@ -336,7 +336,7 @@ void ZeroAllButHighestScore (void)
     
     for (i = 1; i < kMaxScores; i++)
     {
-        PasStringCopy("\p--------------", thisHousePtr->highScores.names[i]);
+        PasStringCopy("--------------", thisHousePtr->highScores.names[i]);
         thisHousePtr->highScores.scores[i] = 0L;
         thisHousePtr->highScores.timeStamps[i] = 0L;
         thisHousePtr->highScores.levels[i] = 0;
@@ -479,7 +479,7 @@ void GetHighScoreName (short place)
     InitCursor();
     NumToString(theScore, scoreStr);
     NumToString((long)place, placeStr);
-    ParamText(scoreStr, placeStr, thisHouseName, "\p");
+    ParamText(scoreStr, placeStr, thisHouseName, "");
     PlayPrioritySound(kEnergizeSound, kEnergizePriority);
     BringUpDialog(&theDial, kHighNameDialogID);
     FlushEvents(everyEvent, 0);
@@ -611,13 +611,13 @@ Boolean CreateScoresFolder (long *scoresDirID)
     
     theErr = FindFolder(kOnSystemDisk, kPreferencesFolderType, kCreateFolder, 
             &volRefNum, &prefsDirID);
-    if (!CheckFileError(theErr, "\pPrefs Folder"))
+    if (!CheckFileError(theErr, "Prefs Folder"))
         return (false);
     
-    theErr = FSMakeFSSpec(volRefNum, prefsDirID, "\pG-PRO Scores ƒ", &scoresSpec);
+    theErr = FSMakeFSSpec(volRefNum, prefsDirID, "G-PRO Scores ƒ", &scoresSpec);
     
     theErr = FSpDirCreate(&scoresSpec, smSystemScript, scoresDirID);
-    if (!CheckFileError(theErr, "\pHigh Scores Folder"))
+    if (!CheckFileError(theErr, "High Scores Folder"))
         return (false);
     
     return (true);
@@ -634,10 +634,10 @@ Boolean FindHighScoresFolder (short *volRefNum, long *scoresDirID)
     
     theErr = FindFolder(kOnSystemDisk, kPreferencesFolderType, kCreateFolder, 
             volRefNum, &prefsDirID);
-    if (!CheckFileError(theErr, "\pPrefs Folder"))
+    if (!CheckFileError(theErr, "Prefs Folder"))
         return (false);
     
-    PasStringCopy("\pG-PRO Scores ƒ", nameString);
+    PasStringCopy("G-PRO Scores ƒ", nameString);
     count = 1;
     foundIt = false;
     
@@ -654,7 +654,7 @@ Boolean FindHighScoresFolder (short *volRefNum, long *scoresDirID)
         {
             if ((theBlock.dirInfo.ioFlAttrib & 0x10) == 0x10)
             {
-                if (EqualString(theBlock.dirInfo.ioNamePtr, "\pG-PRO Scores ƒ", 
+                if (EqualString(theBlock.dirInfo.ioNamePtr, "G-PRO Scores ƒ",
                         true, true))
                 {
                     foundIt = true;
@@ -683,14 +683,14 @@ Boolean OpenHighScoresFile (FSSpec *scoreSpec, short *scoresRefNum)
     theErr = FSpOpenDF(scoreSpec, fsCurPerm, scoresRefNum);
     if (theErr == fnfErr)
     {
-        theErr = FSpCreate(scoreSpec, 'ozm5', 'gliS', smSystemScript);
-        if (!CheckFileError(theErr, "\pNew High Scores File"))
+        theErr = FSpCreate(scoreSpec, "ozm5", "gliS", smSystemScript);
+        if (!CheckFileError(theErr, "New High Scores File"))
             return (false);
         theErr = FSpOpenDF(scoreSpec, fsCurPerm, scoresRefNum);
-        if (!CheckFileError(theErr, "\pHigh Score"))
+        if (!CheckFileError(theErr, "High Score"))
             return (false);
     }
-    else if (!CheckFileError(theErr, "\pHigh Score"))
+    else if (!CheckFileError(theErr, "High Score"))
         return (false);
     
     return (true);
@@ -719,7 +719,7 @@ Boolean WriteScoresToDisk (void)
     }
     
     theErr = SetFPos(scoresRefNum, fsFromStart, 0L);
-    if (!CheckFileError(theErr, "\pHigh Scores File"))
+    if (!CheckFileError(theErr, "High Scores File"))
     {
         theErr = FSClose(scoresRefNum);
         return(false);
@@ -731,7 +731,7 @@ Boolean WriteScoresToDisk (void)
     theScores = &((*thisHouse)->highScores);
     
     theErr = FSWrite(scoresRefNum, &byteCount, (Ptr)theScores);
-    if (!CheckFileError(theErr, "\pHigh Scores File"))
+    if (!CheckFileError(theErr, "High Scores File"))
     {
         HSetState((Handle)thisHouse, wasState);
         theErr = FSClose(scoresRefNum);
@@ -740,14 +740,14 @@ Boolean WriteScoresToDisk (void)
     HSetState((Handle)thisHouse, wasState);
     
     theErr = SetEOF(scoresRefNum, byteCount);
-    if (!CheckFileError(theErr, "\pHigh Scores File"))
+    if (!CheckFileError(theErr, "High Scores File"))
     {
         theErr = FSClose(scoresRefNum);
         return(false);
     }
     
     theErr = FSClose(scoresRefNum);
-    if (!CheckFileError(theErr, "\pHigh Scores File"))
+    if (!CheckFileError(theErr, "High Scores File"))
         return(false);
     
     return (true);
@@ -776,14 +776,14 @@ Boolean ReadScoresFromDisk (void)
     }
     
     theErr = GetEOF(scoresRefNum, &byteCount);
-    if (!CheckFileError(theErr, "\pHigh Scores File"))
+    if (!CheckFileError(theErr, "High Scores File"))
     {
         theErr = FSClose(scoresRefNum);
         return (false);
     }
     
     theErr = SetFPos(scoresRefNum, fsFromStart, 0L);
-    if (!CheckFileError(theErr, "\pHigh Scores File"))
+    if (!CheckFileError(theErr, "High Scores File"))
     {
         theErr = FSClose(scoresRefNum);
         return (false);
@@ -794,7 +794,7 @@ Boolean ReadScoresFromDisk (void)
     theScores = &((*thisHouse)->highScores);
     
     theErr = FSRead(scoresRefNum, &byteCount, theScores);
-    if (!CheckFileError(theErr, "\pHigh Scores File"))
+    if (!CheckFileError(theErr, "High Scores File"))
     {
         HSetState((Handle)thisHouse, wasState);
         theErr = FSClose(scoresRefNum);
@@ -803,7 +803,7 @@ Boolean ReadScoresFromDisk (void)
     HSetState((Handle)thisHouse, wasState);
     
     theErr = FSClose(scoresRefNum);
-    if (!CheckFileError(theErr, "\pHigh Scores File"))
+    if (!CheckFileError(theErr, "High Scores File"))
         return(false);
     
     return (true);

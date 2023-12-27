@@ -126,21 +126,21 @@ static void UpdateMainPict (DialogPtr theDial)
     
     DrawDialog(theDial);
     
-    PasStringCopy("\pMemory:   ", theStr);      // display free memory
+    PasStringCopy("Memory:   ", theStr);      // display free memory
     PurgeSpace(&totalSize, &contigSize);
     totalSize /= 1024;
     NumToString(totalSize, theStr2);
     PasStringConcat(theStr, theStr2);
-    PasStringConcat(theStr, "\pK");
+    PasStringConcat(theStr, "K");
     DrawDialogUserText2(theDial, 7, theStr);
     
-    PasStringCopy("\pScreen:   ", theStr);      // display screen size/depth
+    PasStringCopy("Screen:   ", theStr);      // display screen size/depth
     NumToString((long)(thisMac.screen.right - thisMac.screen.left), theStr2);
     PasStringConcat(theStr, theStr2);
-    PasStringConcat(theStr, "\px");
+    PasStringConcat(theStr, "x");
     NumToString((long)(thisMac.screen.bottom - thisMac.screen.top), theStr2);
     PasStringConcat(theStr, theStr2);
-    PasStringConcat(theStr, "\px");
+    PasStringConcat(theStr, "x");
     NumToString((long)thisMac.isDepth, theStr2);
     PasStringConcat(theStr, theStr2);
     DrawDialogUserText2(theDial, 8, theStr);

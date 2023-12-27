@@ -879,7 +879,7 @@ void DoBlowerObjectInfo (short what)
     NumToString(objActive + 1, numberStr);
     GetIndString(kindStr, kObjectNameStrings, thisRoom->objects[objActive].what);
     NumToString(thisRoom->objects[objActive].data.a.distance, distStr);
-    ParamText(numberStr, kindStr, distStr, "\p");
+    ParamText(numberStr, kindStr, distStr, "");
     
 //  CenterDialog(kBlowerInfoDialogID);
     infoDial = GetNewDialog(kBlowerInfoDialogID, nil, kPutInFront);
@@ -1049,25 +1049,25 @@ void DoFurnitureObjectInfo (void)
     
     if (objActive == kInitialGliderSelected)
     {
-        PasStringCopy("\p-", numberStr);
-        PasStringCopy("\pGlider Begins", kindStr);
+        PasStringCopy("-", numberStr);
+        PasStringCopy("Glider Begins", kindStr);
     }
     else if (objActive == kLeftGliderSelected)
     {
-        PasStringCopy("\p-", numberStr);
-        PasStringCopy("\pNew Glider (left)", kindStr);
+        PasStringCopy("-", numberStr);
+        PasStringCopy("New Glider (left)", kindStr);
     }
     else if (objActive == kRightGliderSelected)
     {
-        PasStringCopy("\p-", numberStr);
-        PasStringCopy("\pNew Glider (right)", kindStr);
+        PasStringCopy("-", numberStr);
+        PasStringCopy("New Glider (right)", kindStr);
     }
     else
     {
         NumToString(objActive + 1, numberStr);
         GetIndString(kindStr, kObjectNameStrings, thisRoom->objects[objActive].what);
     }
-    ParamText(numberStr, kindStr, "\p", "\p");
+    ParamText(numberStr, kindStr, "", "");
     
     BringUpDialog(&infoDial, kFurnitureInfoDialogID);
     
@@ -1114,9 +1114,9 @@ void DoCustPictObjectInfo (void)
     NumToString(objActive + 1, numberStr);
     GetIndString(kindStr, kObjectNameStrings, thisRoom->objects[objActive].what);
     if (thisRoom->objects[objActive].what == kCustomPict)
-        ParamText(numberStr, kindStr, "\pPICT", "\p10000");
+        ParamText(numberStr, kindStr, "PICT", "10000");
     else
-        ParamText(numberStr, kindStr, "\pSound", "\p3000");
+        ParamText(numberStr, kindStr, "Sound", "3000");
     
     BringUpDialog(&infoDial, kCustPictInfoDialogID);
     if (thisRoom->objects[objActive].what == kCustomPict)
@@ -1208,18 +1208,18 @@ void DoSwitchObjectInfo (void)
     NumToString(objActive + 1, numberStr);
     GetIndString(kindStr, kObjectNameStrings, thisRoom->objects[objActive].what);
     if (thisRoom->objects[objActive].data.e.where == -1)
-        PasStringCopy("\pnone", roomStr);
+        PasStringCopy("none", roomStr);
     else
     {
         ExtractFloorSuite(thisRoom->objects[objActive].data.e.where, &floor, &suite);
         NumToString((long)floor, roomStr);
-        PasStringConcat(roomStr, "\p / ");
+        PasStringConcat(roomStr, " / ");
         NumToString((long)suite, tempStr);
         PasStringConcat(roomStr, tempStr);
     }
     
     if (thisRoom->objects[objActive].data.e.who == 255)
-        PasStringCopy("\pnone", objStr);
+        PasStringCopy("none", objStr);
     else
         NumToString((long)thisRoom->objects[objActive].data.e.who + 1, objStr);
     
@@ -1329,18 +1329,18 @@ void DoTriggerObjectInfo (void)
     NumToString(objActive + 1, numberStr);
     GetIndString(kindStr, kObjectNameStrings, thisRoom->objects[objActive].what);
     if (thisRoom->objects[objActive].data.e.where == -1)
-        PasStringCopy("\pnone", roomStr);
+        PasStringCopy("none", roomStr);
     else
     {
         ExtractFloorSuite(thisRoom->objects[objActive].data.e.where, &floor, &suite);
         NumToString((long)floor, roomStr);
-        PasStringConcat(roomStr, "\p / ");
+        PasStringConcat(roomStr, " / ");
         NumToString((long)suite, tempStr);
         PasStringConcat(roomStr, tempStr);
     }
     
     if (thisRoom->objects[objActive].data.e.who == 255)
-        PasStringCopy("\pnone", objStr);
+        PasStringCopy("none", objStr);
     else
         NumToString((long)thisRoom->objects[objActive].data.e.who + 1, objStr);
     
@@ -1481,7 +1481,7 @@ void DoLightObjectInfo (void)
     
     NumToString(objActive + 1, numberStr);
     GetIndString(kindStr, kObjectNameStrings, thisRoom->objects[objActive].what);
-    ParamText(numberStr, kindStr, "\p", "\p");
+    ParamText(numberStr, kindStr, "", "");
     
 //  CenterDialog(kLightInfoDialogID);
     infoDial = GetNewDialog(kLightInfoDialogID, nil, kPutInFront);
@@ -1566,7 +1566,7 @@ void DoApplianceObjectInfo (short what)
     
     NumToString(objActive + 1, numberStr);
     GetIndString(kindStr, kObjectNameStrings, thisRoom->objects[objActive].what);
-    ParamText(numberStr, kindStr, "\p", "\p");
+    ParamText(numberStr, kindStr, "", "");
     
     BringUpDialog(&infoDial, kApplianceInfoDialogID);
     
@@ -1679,7 +1679,7 @@ void DoMicrowaveObjectInfo (void)
     
     NumToString(objActive + 1, numberStr);
     GetIndString(kindStr, kObjectNameStrings, thisRoom->objects[objActive].what);
-    ParamText(numberStr, kindStr, "\p", "\p");
+    ParamText(numberStr, kindStr, "", "");
     
     BringUpDialog(&infoDial, kMicrowaveInfoDialogID);
     
@@ -1801,7 +1801,7 @@ void DoGreaseObjectInfo (void)
     
     NumToString(objActive + 1, numberStr);
     GetIndString(kindStr, kObjectNameStrings, thisRoom->objects[objActive].what);
-    ParamText(numberStr, kindStr, "\p", "\p");
+    ParamText(numberStr, kindStr, "", "");
     
     BringUpDialog(&infoDial, kGreaseInfoDialogID);
     
@@ -1873,7 +1873,7 @@ void DoInvisBonusObjectInfo (void)
     
     NumToString(objActive + 1, numberStr);
     GetIndString(kindStr, kObjectNameStrings, thisRoom->objects[objActive].what);
-    ParamText(numberStr, kindStr, "\p", "\p");
+    ParamText(numberStr, kindStr, "", "");
     
     switch (thisRoom->objects[objActive].data.c.points)
     {
@@ -1985,18 +1985,18 @@ void DoTransObjectInfo (short what)
     NumToString(objActive + 1, numberStr);
     GetIndString(kindStr, kObjectNameStrings, thisRoom->objects[objActive].what);
     if (thisRoom->objects[objActive].data.d.where == -1)
-        PasStringCopy("\pnone", roomStr);
+        PasStringCopy("none", roomStr);
     else
     {
         ExtractFloorSuite(thisRoom->objects[objActive].data.d.where, &floor, &suite);
         NumToString((long)floor, roomStr);
-        PasStringConcat(roomStr, "\p / ");
+        PasStringConcat(roomStr, " / ");
         NumToString((long)suite, tempStr);
         PasStringConcat(roomStr, tempStr);
     }
     
     if (thisRoom->objects[objActive].data.d.who == 255)
-        PasStringCopy("\pnone", objStr);
+        PasStringCopy("none", objStr);
     else
         NumToString((long)thisRoom->objects[objActive].data.d.who + 1, objStr);
     
@@ -2106,7 +2106,7 @@ void DoEnemyObjectInfo (short what)
     
     NumToString(objActive + 1, numberStr);
     GetIndString(kindStr, kObjectNameStrings, thisRoom->objects[objActive].what);
-    ParamText(numberStr, kindStr, "\p", "\p");
+    ParamText(numberStr, kindStr, "", "");
     
     BringUpDialog(&infoDial, kEnemyInfoDialogID);
     
@@ -2213,7 +2213,7 @@ void DoFlowerObjectInfo (void)
     
     NumToString(objActive + 1, numberStr);
     GetIndString(kindStr, kObjectNameStrings, thisRoom->objects[objActive].what);
-    ParamText(numberStr, kindStr, "\p", "\p");
+    ParamText(numberStr, kindStr, "", "");
     
     BringUpDialog(&infoDial, kFlowerInfoDialogID);
     
