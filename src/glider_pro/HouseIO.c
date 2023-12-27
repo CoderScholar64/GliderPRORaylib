@@ -42,12 +42,12 @@ void LoopMovie (void)
     theLoop = NewHandle(sizeof(long));
     (** (long **) theLoop) = 0;
     theUserData = GetMovieUserData(theMovie);
-    theCount = CountUserDataType(theUserData, 'LOOP');
+    theCount = CountUserDataType(theUserData, "LOOP");
     while (theCount--)
     {
-        RemoveUserData(theUserData, 'LOOP', 1);
+        RemoveUserData(theUserData, "LOOP", 1);
     }
-    AddUserData(theUserData, theLoop, 'LOOP');
+    AddUserData(theUserData, theLoop, "LOOP");
 }
 //--------------------------------------------------------------  OpenHouseMovie
 void OpenHouseMovie (void)
@@ -242,7 +242,7 @@ Boolean SaveHouseAs (void)
             return(false);
         }
                                                     // create new house file
-        theErr = FSpCreate(&theReply.sfFile, 'ozm5', 'gliH', theReply.sfScript);
+        theErr = FSpCreate(&theReply.sfFile, "ozm5", "gliH", theReply.sfScript);
         if (!CheckFileError(theErr, theReply.sfFile.name))
             return (false);
         HCreateResFile(theReply.sfFile.vRefNum, theReply.sfFile.parID, 

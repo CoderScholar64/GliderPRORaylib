@@ -125,7 +125,7 @@ void LoadGraphicSpecial (short resID)
     thePicture = GetPicture(resID);
     if (thePicture == nil)
     {
-        thePicture = (PicHandle)GetResource('Date', resID);
+        thePicture = (PicHandle)GetResource("Date", resID);
         if (thePicture == nil)
         {
             thePicture = GetPicture(2000);

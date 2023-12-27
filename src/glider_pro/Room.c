@@ -613,8 +613,8 @@ void SetToNearestNeighborRoom (short wasFloor, short wasSuite)
     distance = 1;   // we begin our walk a distance of one from source room
     h = -1;         // we begin with the neighbor to the left…
     v = 0;          // and on the same floor
-    hStep = 0;      // we don't 'walk' left or right…
-    vStep = -1;     // instead, we 'walk' up
+    hStep = 0;      // we don't "walk" left or right…
+    vStep = -1;     // instead, we "walk" up
     
     do
     {
@@ -889,7 +889,7 @@ short GetOriginalBounding (short theID)
     boundsHand  boundsRes;
     short       boundCode;
     
-    boundsRes = (boundsHand)GetResource('bnds', theID);
+    boundsRes = (boundsHand)GetResource("bnds", theID);
     if (boundsRes == nil)
     {
         if (PictIDExists(theID))

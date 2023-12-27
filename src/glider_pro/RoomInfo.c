@@ -814,7 +814,7 @@ Boolean PictIDExists (short theID)
     thePicture = GetPicture(theID);
     if (thePicture == nil)
     {
-        thePicture = (PicHandle)GetResource('Date', theID);
+        thePicture = (PicHandle)GetResource("Date", theID);
         if (thePicture == nil)
         {
             foundIt = false;
@@ -826,10 +826,10 @@ Boolean PictIDExists (short theID)
         ReleaseResource((Handle)thePicture);
     
 //  foundIt = false;
-//  numPicts = Count1Resources('PICT');
+//  numPicts = Count1Resources("PICT");
 //  for (i = 1; i <= numPicts; i++)
 //  {
-//      resHandle = Get1IndResource('PICT', i);
+//      resHandle = Get1IndResource("PICT", i);
 //      if (resHandle != nil)
 //      {
 //          GetResInfo(resHandle, &resID, &resType, resName);
@@ -852,7 +852,7 @@ short GetFirstPICT (void)
     ResType     resType;
     short       resID;
     
-    resHandle = Get1IndResource('PICT', 1);
+    resHandle = Get1IndResource("PICT", 1);
     if (resHandle != nil)
     {
         GetResInfo(resHandle, &resID, &resType, resName);

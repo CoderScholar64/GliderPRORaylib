@@ -40,7 +40,7 @@ void GetPutDialogCorner (Point *theCorner)
     theScreen.top += LMGetMBarHeight();
     OffsetRect(&theScreen, -theScreen.left, -theScreen.top);
     
-    dlogHandle = (DialogTHndl)GetResource('DLOG', sfPutDialogID);
+    dlogHandle = (DialogTHndl)GetResource("DLOG", sfPutDialogID);
     if (dlogHandle != nil)
     {
         wasState = HGetState((Handle)dlogHandle);
@@ -73,7 +73,7 @@ void GetGetDialogCorner (Point *theCorner)
     theScreen.top += LMGetMBarHeight();
     OffsetRect(&theScreen, -theScreen.left, -theScreen.top);
     
-    dlogHandle = (DialogTHndl)GetResource('DLOG', sfGetDialogID);
+    dlogHandle = (DialogTHndl)GetResource("DLOG", sfGetDialogID);
     if (dlogHandle != nil)
     {
         wasState = HGetState((Handle)dlogHandle);
@@ -103,7 +103,7 @@ void CenterDialog (SInt16 dialogID)
     theScreen = qd.screenBits.bounds;
     theScreen.top += LMGetMBarHeight();
     
-    dlogHandle = (DialogTHndl)GetResource('DLOG', dialogID);
+    dlogHandle = (DialogTHndl)GetResource("DLOG", dialogID);
     if (dlogHandle != nil)
     {
         wasState = HGetState((Handle)dlogHandle);
@@ -129,7 +129,7 @@ void GetDialogRect (Rect *bounds, short dialogID)
     DialogTHndl dlogHandle;
     Byte        wasState;
     
-    dlogHandle = (DialogTHndl)GetResource('DLOG', dialogID);
+    dlogHandle = (DialogTHndl)GetResource("DLOG", dialogID);
     if (dlogHandle != nil)
     {
         wasState = HGetState((Handle)dlogHandle);
@@ -153,7 +153,7 @@ void TrueCenterDialog (short dialogID)
     theScreen = qd.screenBits.bounds;
     theScreen.top += LMGetMBarHeight();
     
-    dlogHandle = (DialogTHndl)GetResource('DLOG', dialogID);
+    dlogHandle = (DialogTHndl)GetResource("DLOG", dialogID);
     if (dlogHandle != nil)
     {
         wasState = HGetState((Handle)dlogHandle);
@@ -188,7 +188,7 @@ void CenterAlert (short alertID)
     theScreen = qd.screenBits.bounds;
     theScreen.top += LMGetMBarHeight();
     
-    alertHandle = (AlertTHndl)GetResource('ALRT', alertID);
+    alertHandle = (AlertTHndl)GetResource("ALRT", alertID);
     if (alertHandle != nil)
     {
         wasState = HGetState((Handle)alertHandle);
@@ -227,7 +227,7 @@ void ZoomOutDialogRect (short dialogID)
     tempPort = (GrafPtr)NewPtrClear(sizeof(GrafPort));
     OpenPort(tempPort);
     
-    dlogHandle = (DialogTHndl)GetResource('DLOG', dialogID);
+    dlogHandle = (DialogTHndl)GetResource("DLOG", dialogID);
     if (dlogHandle != nil)
     {
         wasState = HGetState((Handle)dlogHandle);
@@ -280,7 +280,7 @@ void ZoomOutAlertRect (short alertID)
     tempPort = (GrafPtr)NewPtrClear(sizeof(GrafPort));
     OpenPort(tempPort);
     
-    alertHandle = (AlertTHndl)GetResource('ALRT', alertID);
+    alertHandle = (AlertTHndl)GetResource("ALRT", alertID);
     if (alertHandle != nil)
     {
         wasState = HGetState((Handle)alertHandle);
@@ -617,7 +617,7 @@ void DrawDialogUserText2 (DialogPtr dial, short item, StringPtr text)
     DrawString(stringCopy);
 }
 //--------------------------------------------------------------  LoadDialogPICT
-// Draws a 'PICT' specified by ID within the bounds of the specified…
+// Draws a "PICT" specified by ID within the bounds of the specified…
 // dialog item.
 void LoadDialogPICT (DialogPtr theDialog, short item, short theID)
 {

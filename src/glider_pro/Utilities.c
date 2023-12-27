@@ -276,7 +276,7 @@ void KillOffScreenBitMap (GrafPtr offScreen)
 }
 */
 //--------------------------------------------------------------  LoadGraphic
-// Function loads the specified 'PICT' from disk and draws it to…
+// Function loads the specified "PICT" from disk and draws it to…
 // the current port (no scaling, clipping, etc, are done).  Always…
 // draws in the upper left corner of current port.
 void LoadGraphic (short resID)
@@ -297,8 +297,8 @@ void LoadGraphic (short resID)
     ReleaseResource((Handle)thePicture);
 }
 //--------------------------------------------------------------  LoadScaledGraphic
-// Loads the specified 'PICT' and draws it mapped to the rectangle…
-// specified.  If this rect isn't the same size of the 'PICT', scaling…
+// Loads the specified "PICT" and draws it mapped to the rectangle…
+// specified.  If this rect isn't the same size of the "PICT", scaling…
 // will occur.
 void LoadScaledGraphic (short resID, Rect *theRect)
 {
@@ -336,7 +336,7 @@ void PlotSICN (Rect *theRect, SICNHand theSICN, long theIndex)
 }
 */
 //--------------------------------------------------------------  LargeIconPlot
-// Draws a standard b&w icon (32 x 32) - resource is an 'ICON'.
+// Draws a standard b&w icon (32 x 32) - resource is an "ICON".
 void LargeIconPlot (Rect *theRect, short theID)
 {
     OSErr       theErr;
@@ -347,7 +347,7 @@ void LargeIconPlot (Rect *theRect, short theID)
         theErr = PlotIconSuite(theRect, atNone, ttNone, theSuite);
 }
 //--------------------------------------------------------------  DrawCIcon
-// Draws a standard color icon (32 x 32) - resource is a 'CICN'.
+// Draws a standard color icon (32 x 32) - resource is a "CICN".
 void DrawCIcon (short theID, short h, short v)
 {
     CIconHandle theIcon;

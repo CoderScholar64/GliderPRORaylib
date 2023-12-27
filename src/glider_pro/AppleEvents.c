@@ -73,7 +73,7 @@ pascal OSErr DoOpenDocAE (const AppleEvent *theAE, AppleEvent *reply, UInt32 ref
         if (theErr == noErr)
         {
             theErr = FSpGetFInfo(&oneFSS, &finderInfo);
-            if ((theErr == noErr) && (finderInfo.fdType == 'gliH'))
+            if ((theErr == noErr) && (finderInfo.fdType == "gliH"))
                 AddExtraHouse(&oneFSS);
         }
     }
@@ -84,7 +84,7 @@ pascal OSErr DoOpenDocAE (const AppleEvent *theAE, AppleEvent *reply, UInt32 ref
         if (theErr == noErr)
         {
             theErr = FSpGetFInfo(&oneFSS, &finderInfo);
-            if ((theErr == noErr) && (finderInfo.fdType == 'gliH'))
+            if ((theErr == noErr) && (finderInfo.fdType == "gliH"))
             {
                 whoCares = CloseHouse();
                 PasStringCopy(oneFSS.name, thisHouseName);

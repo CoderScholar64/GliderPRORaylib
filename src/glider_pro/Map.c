@@ -150,7 +150,7 @@ void LoadGraphicPlus (short resID, Rect *theRect)
     thePicture = GetPicture(resID);
     if (thePicture == nil)
     {
-        thePicture = (PicHandle)GetResource('Date', resID);
+        thePicture = (PicHandle)GetResource("Date", resID);
         if (thePicture == nil)
         {
             return;

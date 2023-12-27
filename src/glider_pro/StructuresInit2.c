@@ -268,7 +268,7 @@ void CreatePointers (void)
     demoData = (demoPtr)NewPtr(kDemoLength);
     if (demoData == nil)
         RedAlert(kErrNoMemory);
-    tempHandle = GetResource('demo', 128);
+    tempHandle = GetResource("demo", 128);
     if (tempHandle == nil)
         RedAlert(kErrNoMemory);
     else

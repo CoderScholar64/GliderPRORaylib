@@ -209,7 +209,7 @@ OSErr LoadMusicSounds (void)
     
     for (i = 0; i < kMaxMusic; i++)
     {
-        theSound = GetResource('snd ', i + kBaseBufferMusicID);
+        theSound = GetResource("snd ", i + kBaseBufferMusicID);
         if (theSound == nil)
             return (MemError());
         
@@ -359,7 +359,7 @@ long MusicBytesNeeded (void)
     SetResLoad(false);
     for (i = 0; i < kMaxMusic; i++)
     {
-        theSound = GetResource('snd ', i + kBaseBufferMusicID);
+        theSound = GetResource("snd ", i + kBaseBufferMusicID);
         if (theSound == nil)
         {
             SetResLoad(true);

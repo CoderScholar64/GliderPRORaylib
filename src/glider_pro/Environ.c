@@ -637,7 +637,7 @@ void CheckMemorySize (void)
     }
 }
 //--------------------------------------------------------------  SetAppMemorySize
-// Physically changes the 'SIZE' resource of the app so that when launched again,…
+// Physically changes the "SIZE" resource of the app so that when launched again,…
 // the Finder will give us enough memory to fully run the game (God, we hope!).
 void SetAppMemorySize (long newSize)
 {
@@ -650,7 +650,7 @@ void SetAppMemorySize (long newSize)
     
     for (i = 0; i < 2; i++)
     {
-        tempResource = Get1Resource('SIZE', i);
+        tempResource = Get1Resource("SIZE", i);
         if (tempResource != nil)
         {
             RemoveResource(tempResource);
@@ -659,7 +659,7 @@ void SetAppMemorySize (long newSize)
         }
     }
     
-    tempResource = Get1Resource('SIZE', -1);
+    tempResource = Get1Resource("SIZE", -1);
     if (tempResource != nil)
     {
         HLock(tempResource);

@@ -107,7 +107,7 @@ void SaveGame2 (void)
     
     HSetState((Handle)thisHouse, wasState);
     
-    theErr = FSpCreate(&theReply.sfFile, 'ozm5', 'gliG', theReply.sfScript);
+    theErr = FSpCreate(&theReply.sfFile, "ozm5", "gliG", theReply.sfScript);
     if (CheckFileError(theErr, "Saved Game"))
     {
         theErr = FSpOpenDF(&theReply.sfFile, fsCurPerm, &gameRefNum);
@@ -163,7 +163,7 @@ return false;       // TEMP fix this iwth NavServices
     short               r, i, gameRefNum;
     char                wasState;
     
-    theList[0] = 'gliG';
+    theList[0] = "gliG";
     
     StandardGetFile(nil, 1, theList, &theReply);
     if (!theReply.sfGood)

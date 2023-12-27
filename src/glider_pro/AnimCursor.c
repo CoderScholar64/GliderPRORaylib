@@ -34,7 +34,7 @@ Boolean GetMonoCursors (acurHandle ballCursH)
     
     if (ballCursH)                          // Were we passed a legit acur handle?
     {
-        j = (*ballCursH)->n;                // Get number of 'frames' in the acur
+        j = (*ballCursH)->n;                // Get number of "frames" in the acur
         for (i = 0; i < j; i++)             // Start walking the frames
         {
             cursHdl = GetCursor((*ballCursH)->frame[i].resID);
@@ -93,7 +93,7 @@ void InitAnimatedCursor (acurHandle ballCursH)
     
     useColor = thisMac.hasColor;
     if (ballCursH == nil) 
-        ballCursH = (void *)GetResource('acur', 128);
+        ballCursH = (void *)GetResource("acur", 128);
     if (ballCursH && ballCursH != animCursorH)
     {
         HNoPurge((Handle)ballCursH);
@@ -116,7 +116,7 @@ void InitAnimatedCursor (acurHandle ballCursH)
 // to add additional cursors.
 void LoadCursors (void)
 {
-    InitAnimatedCursor((acurHandle)GetResource('acur', rAcurID));
+    InitAnimatedCursor((acurHandle)GetResource("acur", rAcurID));
 }
 //--------------------------------------------------------------  DisposCursors
 // Disposes of all memory allocated by anaimated beach ball cursors.

@@ -91,7 +91,7 @@ void UpdateLoadDialog (DialogPtr theDialog)
                     theHousesSpecs[i].parID, theHousesSpecs[i].name, fsRdPerm);
             if (isResFile != -1)
             {
-                if (Get1Resource('icl8', -16455) != nil)
+                if (Get1Resource("icl8", -16455) != nil)
                 {
                     LargeIconPlot(&tempRect, -16455);
                 }
@@ -565,8 +565,8 @@ void DoDirSearch (void)
             {
                 if ((theBlock.hFileInfo.ioFlAttrib & 0x10) == 0x00)
                 {
-                    if ((theBlock.hFileInfo.ioFlFndrInfo.fdType == 'gliH') && 
-                            (theBlock.hFileInfo.ioFlFndrInfo.fdCreator == 'ozm5') && 
+                    if ((theBlock.hFileInfo.ioFlFndrInfo.fdType == "gliH") &&
+                            (theBlock.hFileInfo.ioFlFndrInfo.fdCreator == "ozm5") &&
                             (housesFound < maxFiles))
                     {
                         notherErr = FSMakeFSSpec(thisMac.vRefNum, 

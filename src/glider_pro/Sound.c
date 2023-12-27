@@ -249,7 +249,7 @@ OSErr LoadTriggerSound (short soundID)
         
         theErr = noErr;
         
-        theSound = GetResource('snd ', soundID);
+        theSound = GetResource("snd ", soundID);
         if (theSound == nil)
         {
             theErr = -1;
@@ -293,7 +293,7 @@ OSErr LoadBufferSounds (void)
     
     for (i = 0; i < kMaxSounds - 1; i++)
     {
-        theSound = GetResource('snd ', i + kBaseBufferSoundID);
+        theSound = GetResource("snd ", i + kBaseBufferSoundID);
         if (theSound == nil)
             return (MemError());
         
@@ -455,7 +455,7 @@ long SoundBytesNeeded (void)
     SetResLoad(false);
     for (i = 0; i < kMaxSounds - 1; i++)
     {
-        theSound = GetResource('snd ', i + kBaseBufferSoundID);
+        theSound = GetResource("snd ", i + kBaseBufferSoundID);
         if (theSound == nil)
         {
             SetResLoad(true);

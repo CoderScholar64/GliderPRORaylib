@@ -42,7 +42,7 @@ Boolean CreateNewHouse (void)
     OSErr               theErr;
     
     theErr = NavGetDefaultDialogOptions(&dialogOptions);
-    theErr = NavPutFile(nil, &theReply, &dialogOptions, nil, 'gliH', 'ozm5', nil);
+    theErr = NavPutFile(nil, &theReply, &dialogOptions, nil, "gliH", "ozm5", nil);
     if (theErr == userCanceledErr)
         return false;
     if (!theReply.validRecord)
@@ -219,7 +219,7 @@ Boolean HouseHasOriginalPicts (void)
 {
     short       nPicts;
     
-    nPicts = Count1Resources('PICT');
+    nPicts = Count1Resources("PICT");
     return (nPicts > 0);
 }
 //--------------------------------------------------------------  CountHouseLinks

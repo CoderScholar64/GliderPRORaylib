@@ -43,7 +43,7 @@ void DoAbout (void)
 //  if (aboutDialog == nil)
 //      RedAlert(kErrDialogDidntLoad);
     
-    version = (VersRecHndl)GetResource('vers', 1);
+    version = (VersRecHndl)GetResource("vers", 1);
     if (version != nil)
     {
         messagePtr = (StringPtr)(((UInt32)&(**version).shortVersion[1]) 
