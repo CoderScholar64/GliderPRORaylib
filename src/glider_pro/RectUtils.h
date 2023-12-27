@@ -7,6 +7,8 @@
 #ifndef GPRO_RECT_UTILS_H
 #define GPRO_RECT_UTILS_H
 
+#include "GliderTypes.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif

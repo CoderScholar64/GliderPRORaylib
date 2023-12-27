@@ -17,7 +17,7 @@ void FrameWHRect (SInt16 left, SInt16 top, SInt16 wide, SInt16 high)
     theRect.top = top;
     theRect.right = left + wide;
     theRect.bottom = top + high;
-    FrameRect(&theRect);
+    // FrameRect(&theRect); // TODO Reimplement FrameRect(...)
 }
 //--------------------------------------------------------------  NormalizeRect
 // This function ensures that a rect's top is less than it's bottom…
@@ -92,7 +92,7 @@ void GlobalToLocalRect (Rect *theRect)
     
     upperLeftPt.h = 0;
     upperLeftPt.v = 0;
-    GlobalToLocal(&upperLeftPt);
+    // GlobalToLocal(&upperLeftPt); // TODO Reimplement this.
     QOffsetRect(theRect, upperLeftPt.h, upperLeftPt.v);
 }
 //--------------------------------------------------------------  LocalToGlobalRect
@@ -104,7 +104,7 @@ void LocalToGlobalRect (Rect *theRect)
     
     upperLeftPt.h = 0;
     upperLeftPt.v = 0;
-    LocalToGlobal(&upperLeftPt);
+    // LocalToGlobal(&upperLeftPt); TODO Reimplement this.
     QOffsetRect(theRect, upperLeftPt.h, upperLeftPt.v);
 }
 //--------------------------------------------------------------  CenterRectInRect
@@ -198,25 +198,25 @@ Boolean ForceRectInRect (Rect *small, Rect *large)
     hOff = large->left - small->left;
     if (hOff > 0)
     {
-        OffsetRect(small, hOff, 0);
+        QOffsetRect(small, hOff, 0);
         changed = true;
     }
     hOff = large->right - small->right;
     if (hOff < 0)
     {
-        OffsetRect(small, hOff, 0);
+        QOffsetRect(small, hOff, 0);
         changed = true;
     }
     vOff = large->top - small->top;
     if (vOff > 0)
     {
-        OffsetRect(small, 0, vOff);
+        QOffsetRect(small, 0, vOff);
         changed = true;
     }
     vOff = large->bottom - small->bottom;
     if (vOff < 0)
     {
-        OffsetRect(small, 0, vOff);
+        QOffsetRect(small, 0, vOff);
         changed = true;
     }
     
@@ -252,6 +252,7 @@ void QUnionSimilarRect (Rect *rectA, Rect *rectB, Rect *rectC)
 // draw the pixels in the 4 corners of the Rect.
 void FrameRectSansCorners (Rect *theRect)
 {
+    /* TODO Reimplement this Find another way to draw stuff.
     MoveTo(theRect->left + 1, theRect->top);
     LineTo(theRect->right - 2, theRect->top);
     
@@ -263,4 +264,5 @@ void FrameRectSansCorners (Rect *theRect)
     
     MoveTo(theRect->left, theRect->top + 1);
     LineTo(theRect->left, theRect->bottom - 2);
+     */
 }
