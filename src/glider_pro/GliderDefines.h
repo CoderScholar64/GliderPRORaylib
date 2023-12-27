@@ -16,7 +16,6 @@ extern "C" {
 //#define CREATEDEMODATA
 //#define COMPILEDEMO
 //#define CAREFULDEBUG
-#define COMPILENOCP
 #define COMPILEQT
 #define BUILD_ARCADE_VERSION        1
 #define kYellowUnaccounted          1
