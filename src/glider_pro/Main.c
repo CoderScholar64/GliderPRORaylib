@@ -19,7 +19,6 @@ Boolean     quitting, doZooms, quickerTransitions, isUseSecondScreen;
 extern Str31        highBanner;
 extern Str15        leftName, rightName, batteryName, bandName;
 extern Str15        highName;
-//extern long       encryptedNumber;
 extern short        maxFiles, numNeighbors, houseRefNum, willMaxFiles;
 extern short        isEditH, isEditV, isMapH, isMapV;
 extern short        isToolsH, isToolsV, isCoordH, isCoordV;
@@ -30,7 +29,7 @@ extern Boolean      houseOpen, isDoColorFade, isEscPauseKey;
 extern Boolean      autoRoomEdit, doAutoDemo, doBackground;
 extern Boolean      isMapOpen, isToolsOpen, isCoordOpen;
 extern Boolean      doPrettyMap, doBitchDialogs;
-//extern Boolean        didValidation;
+
 //==============================================================  Functions
 //--------------------------------------------------------------  ReadInPrefs
 // Called only once when game launches - reads in the preferences saved…
@@ -57,11 +56,6 @@ void ReadInPrefs (void)
         theGlider.rightKey = thePrefs.wasRightMap;
         theGlider.battKey = thePrefs.wasBattMap;
         theGlider.bandKey = thePrefs.wasBandMap;
-#ifndef COMPILEDEMO
-#ifndef COMPILENOCP
-        encryptedNumber = thePrefs.encrypted;
-#endif          // COMPILENOCP
-#endif          // COMPILEDEMO
         isVolume = thePrefs.wasVolume;
         isDepthPref = thePrefs.wasDepthPref;
         isMusicOn = thePrefs.wasMusicOn;
@@ -210,12 +204,6 @@ void WriteOutPrefs (void)
     thePrefs.wasRightMap = theGlider.rightKey;
     thePrefs.wasBattMap = theGlider.battKey;
     thePrefs.wasBandMap = theGlider.bandKey;
-#ifndef COMPILEDEMO
-#ifndef COMPILENOCP
-    thePrefs.encrypted = encryptedNumber;
-    thePrefs.fakeLong = Random();
-#endif          // COMPILENOCP
-#endif          // COMPILEDEMO
     thePrefs.wasVolume = isVolume;
     thePrefs.wasDepthPref = isDepthPref;
     thePrefs.wasMusicOn = isMusicOn;
@@ -268,7 +256,7 @@ void main (void)
 //  long        wasSeed;
     long        theErr;
     OSErr       fileErr;
-    Boolean     whoCares, copyGood;
+    Boolean     whoCares;
     
     ToolBoxInit();
     CheckOurEnvirons();
@@ -282,20 +270,6 @@ void main (void)
     SetUpAppleEvents();
     LoadCursors();
     ReadInPrefs();
-    
-#if defined COMPILEDEMO
-    copyGood = true;
-#elif defined COMPILENOCP
-//  didValidation = false;
-    copyGood = true;
-#else
-    didValidation = false;
-    copyGood = ValidInstallation(true);
-    if (!copyGood)
-        encryptedNumber = 0L;
-    else if (didValidation)
-        WriteOutPrefs();                SpinCursor(3);
-#endif
     
 //  if ((thisMac.numScreens > 1) && (isUseSecondScreen))
 //      ReflectSecondMonitorEnvirons(false, true, true);

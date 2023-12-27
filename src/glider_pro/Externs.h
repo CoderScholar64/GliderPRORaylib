@@ -226,7 +226,6 @@ typedef struct
     Str15       wasBattName, wasBandName;
     Str15       wasHighName;
     Str31       wasHighBanner;
-//  long        encrypted, fakeLong;
     long        wasLeftMap, wasRightMap;
     long        wasBattMap, wasBandMap;
     short       wasVolume;
@@ -346,7 +345,6 @@ long ExtractCTSeed (CGrafPtr);
 void DelayTicks (long);
 void UnivGetSoundVolume (short *, Boolean);
 void  UnivSetSoundVolume (short, Boolean);
-Boolean ValidInstallation (Boolean);                    // --- Validate.c
 void GetWindowLeftTop (WindowPtr, short *, short *);    // --- WindowUtils.c
 void GetWindowRect (WindowPtr, Rect *);
 void GetLocalWindowRect (WindowPtr, Rect *);
