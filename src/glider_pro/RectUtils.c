@@ -7,18 +7,7 @@
 #include "RectUtils.h"
 //==============================================================  Functions
 //--------------------------------------------------------------  FrameWHRect
-// Given the top left corner and a width and height, this function…
-// simply creates the necessary rectangle and frames it.
-void FrameWHRect (SInt16 left, SInt16 top, SInt16 wide, SInt16 high)
-{
-    Rect        theRect;
-    
-    theRect.left = left;
-    theRect.top = top;
-    theRect.right = left + wide;
-    theRect.bottom = top + high;
-    // FrameRect(&theRect); // TODO Reimplement FrameRect(...)
-}
+// Removed because unused.
 //--------------------------------------------------------------  NormalizeRect
 // This function ensures that a rect's top is less than it's bottom…
 // and that left is less than right.
@@ -84,17 +73,7 @@ SInt16 RectTall (Rect *theRect)
     return (theRect->bottom - theRect->top);
 }
 //--------------------------------------------------------------  GlobalToLocalRect
-// This function offsets a rectangle from global to local coordinates.
-// The "local" coordinate system is assumed to be the current port (window).
-void GlobalToLocalRect (Rect *theRect)
-{
-    Point           upperLeftPt;
-    
-    upperLeftPt.h = 0;
-    upperLeftPt.v = 0;
-    // GlobalToLocal(&upperLeftPt); // TODO Reimplement this.
-    QOffsetRect(theRect, upperLeftPt.h, upperLeftPt.v);
-}
+// This function was removed.
 //--------------------------------------------------------------  LocalToGlobalRect
 // This function offsets a rectangle from local to global coordinates.
 // The "local" coordinate system is assumed to be the current port (window).
@@ -104,7 +83,7 @@ void LocalToGlobalRect (Rect *theRect)
     
     upperLeftPt.h = 0;
     upperLeftPt.v = 0;
-    // LocalToGlobal(&upperLeftPt); TODO Reimplement this.
+    // LocalToGlobal(&upperLeftPt); TODO Reimplement this?
     QOffsetRect(theRect, upperLeftPt.h, upperLeftPt.v);
 }
 //--------------------------------------------------------------  CenterRectInRect
@@ -248,21 +227,4 @@ void QUnionSimilarRect (Rect *rectA, Rect *rectB, Rect *rectC)
         rectC->bottom = rectB->bottom;
 }
 //--------------------------------------------------------------  FrameRectSansCorners
-// This is similar to the ToolBox FrameRect() call.  However, it doesn't…
-// draw the pixels in the 4 corners of the Rect.
-void FrameRectSansCorners (Rect *theRect)
-{
-    /* TODO Reimplement this Find another way to draw stuff.
-    MoveTo(theRect->left + 1, theRect->top);
-    LineTo(theRect->right - 2, theRect->top);
-    
-    MoveTo(theRect->right - 1, theRect->top + 1);
-    LineTo(theRect->right - 1, theRect->bottom - 2);
-    
-    MoveTo(theRect->left + 1, theRect->bottom - 1);
-    LineTo(theRect->right - 2, theRect->bottom - 1);
-    
-    MoveTo(theRect->left, theRect->top + 1);
-    LineTo(theRect->left, theRect->bottom - 2);
-     */
-}
+// This was also not used.
