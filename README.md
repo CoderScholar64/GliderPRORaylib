@@ -8,7 +8,7 @@ This project aims to be coded in standard C99 as much as possible. This project 
  * Make this project easier to port.
  * Recreate the GUI that would be TV and gamepad-friendly.
  * Make this project work with GPF format developed by the Aerofoil Author [elasota](https://github.com/elasota/Aerofoil). Rationale: Resource Forks are obsolete.
- * Write a software renderer with 24-bit full color, 16-bit partial color, 8-bit palette, and 4-bit palette support. Rationale: QuickDraw is no longer supported, and a software renderer would make this project easier to port. 640x480 is the planned resolution.
+ * Update rendering code for modern computers
  * Remove the map editor. Rationale: Aerofoil already has that feature, and it would simplify this code base.
 
 ## Original Author
